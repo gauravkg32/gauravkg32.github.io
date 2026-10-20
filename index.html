@@ -1,0 +1,55 @@
+---
+layout: default
+---
+<section class="hero wrap">
+  <p class="mono accent">&gt; hello, world_</p>
+  <h1>{{ site.title }}</h1>
+  <p class="lead" id="typed" data-text="{{ site.tagline }}">{{ site.tagline }}</p>
+  <div class="cta">
+    <a class="btn" href="#work">See my work</a>
+    <a class="btn ghost" href="#contact">Say hi</a>
+  </div>
+</section>
+
+<section class="wrap reveal" id="about">
+  <h2><span class="mono accent">01.</span> About</h2>
+  <p>Placeholder bio — I'm a developer who builds websites and turns them into apps people can
+  install on their phones. When I'm not shipping code, I'm usually lost in a fiction book,
+  arguing about sci-fi, or tinkering with something nerdy.</p>
+</section>
+
+<section class="wrap reveal" id="skills">
+  <h2><span class="mono accent">02.</span> What I do</h2>
+  <div class="grid">
+    <div class="card"><h3>Websites</h3><p>Fast, responsive sites from landing pages to full web apps.</p></div>
+    <div class="card"><h3>Web → App</h3><p>Turning websites into installable Android / iOS apps.</p></div>
+    <div class="card"><h3>UI &amp; Design</h3><p>Clean interfaces that feel good to use.</p></div>
+  </div>
+</section>
+
+<section class="wrap reveal" id="work">
+  <h2><span class="mono accent">03.</span> Work</h2>
+  <div class="grid">
+    <a class="card" href="#"><h3>Project One</h3><p>One-line description of a project. (placeholder)</p></a>
+    <a class="card" href="#"><h3>Project Two</h3><p>A website I converted into an app. (placeholder)</p></a>
+    <a class="card" href="#"><h3>Project Three</h3><p>Something fun and nerdy. (placeholder)</p></a>
+  </div>
+</section>
+
+<section class="wrap reveal" id="writing">
+  <h2><span class="mono accent">04.</span> Latest writing</h2>
+  <ul class="posts">
+    {% for post in site.posts limit:3 %}
+    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a><span class="mono muted">{{ post.date | date: "%b %Y" }}</span></li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="wrap reveal" id="contact">
+  <h2><span class="mono accent">05.</span> Contact</h2>
+  <p>Got a project or a book recommendation? I'm all ears.</p>
+  <div class="cta">
+    <a class="btn" href="mailto:{{ site.email }}">Email me</a>
+    {% for s in site.social %}{% if s[1] != "" %}<a class="btn ghost" href="{{ s[1] }}" target="_blank" rel="noopener">{{ s[0] | capitalize }}</a>{% endif %}{% endfor %}
+  </div>
+</section>

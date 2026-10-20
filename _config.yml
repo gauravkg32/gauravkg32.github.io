@@ -1,0 +1,17 @@
+title: Kumar Gaurav
+tagline: "I build websites — then turn them into apps. Fiction reader. Certified nerd."
+description: "Personal site and blog of Kumar Gaurav — web & app developer."
+url: "https://gauravkg32.github.io"
+baseurl: ""
+email: "you@example.com"        # TODO: your email
+social:
+  github: "https://github.com/gauravkg32"
+  linkedin: ""                  # TODO
+  x: ""                         # TODO
+nav:
+  - { title: Home, url: "/" }
+  - { title: Blog, url: "/blog/" }
+markdown: kramdown
+permalink: /blog/:year/:month/:title/
+plugins: [jekyll-feed, jekyll-seo-tag]
+exclude: [README.md, Gemfile, Gemfile.lock]
