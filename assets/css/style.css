@@ -138,3 +138,6 @@ h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: .5rem; }
   html { scroll-behavior: auto; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* Pricing */
+.pricing-note { margin-top: 1.75rem; text-align: center; }

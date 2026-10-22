@@ -1,7 +1,7 @@
 title: Edgecraft Studio            # placeholder brand name
 founder: Kumar Gaurav
-tagline: "Websites, mobile apps and business software, built to work as hard as you do."
-description: "Edgecraft Studio designs and builds websites, mobile apps and custom business software for growing businesses. Founded by Kumar Gaurav."
+tagline: "We build it, run it and keep it improving, so you can focus on your business."
+description: "Edgecraft Studio builds, hosts and maintains websites, mobile apps and business software for growing businesses, as a managed service. Founded by Kumar Gaurav."
 url: "https://gauravkg32.github.io"
 baseurl: ""
 location: "India"
@@ -12,6 +12,7 @@ nav:
   - { title: Services, url: "/#services" }
   - { title: Work, url: "/#work" }
   - { title: Process, url: "/#process" }
+  - { title: Pricing, url: "/#pricing" }
   - { title: About, url: "/#about" }
 markdown: kramdown
 permalink: /blog/:year/:month/:title/
