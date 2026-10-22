@@ -2,7 +2,8 @@
 layout: default
 ---
 <section class="hero">
-  <div class="container">
+  <div class="container hero-grid">
+   <div>
     <p class="eyebrow">Web &amp; app development studio · {{ site.location }}</p>
     <h1>Software that fits the way <span class="grad">your business</span> works.</h1>
     <p class="lead">{{ site.tagline }} From your website to the app your field team uses every day.</p>
@@ -15,6 +16,19 @@ layout: default
       <li>Works offline, built for Indian networks</li>
       <li>Your data is always yours</li>
     </ul>
+   </div>
+    <div class="terminal" aria-hidden="true">
+      <div class="term-bar"><span></span><span></span><span></span><em>edgecraft — deploy</em></div>
+      <pre class="term-body"><span class="t-prompt">$</span> edgecraft launch --for <span class="t-str">"your-business"</span>
+<span class="t-dim">› building website and app…</span>
+<span class="t-ok">✓</span> website        <span class="t-val">live</span>
+<span class="t-ok">✓</span> android app    <span class="t-val">published</span>
+<span class="t-ok">✓</span> backups        <span class="t-val">daily</span>
+<span class="t-ok">✓</span> monitoring     <span class="t-val">24×7</span>
+<span class="t-ok">✓</span> support        <span class="t-val">on call</span>
+
+<span class="t-prompt">$</span> <span class="cursor"></span></pre>
+    </div>
   </div>
 </section>
 
