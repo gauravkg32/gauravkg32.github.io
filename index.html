@@ -3,34 +3,57 @@ layout: default
 ---
 <section class="hero">
   <div class="container hero-grid">
-   <div>
-    <p class="eyebrow">Web &amp; app development studio · {{ site.location }}</p>
-    <h1>Software that fits the way <span class="grad">your business</span> works.</h1>
-    <p class="lead">{{ site.tagline }} From your website to the app your field team uses every day.</p>
-    <div class="cta">
-      <a class="btn" href="#contact">Start a project</a>
-      <a class="btn btn-ghost" href="#work">See our work</a>
+    <div>
+      <p class="eyebrow">Managed web &amp; app studio · {{ site.location }}</p>
+      <h1>Your orders, sales and stock. <span class="grad">One app.</span></h1>
+      <p class="lead">Ready-made business software, tailored to how you work. {{ site.tagline }}</p>
+      <div class="cta">
+        <a class="btn" href="#contact">Start a project</a>
+        <a class="btn btn-ghost" href="#work">See our work</a>
+      </div>
     </div>
-    <ul class="hero-points">
-      <li>Hosting, updates and support included</li>
-      <li>Works offline, built for Indian networks</li>
-      <li>Your data is always yours</li>
-    </ul>
-   </div>
-    <div class="terminal" aria-hidden="true">
-      <div class="term-bar"><span></span><span></span><span></span><em>edgecraft — deploy</em></div>
-      <pre class="term-body"><span class="t-prompt">$</span> edgecraft launch --for <span class="t-str">"your-business"</span>
-<span class="t-dim">› building website and app…</span>
-<span class="t-ok">✓</span> website        <span class="t-val">live</span>
-<span class="t-ok">✓</span> android app    <span class="t-val">published</span>
-<span class="t-ok">✓</span> backups        <span class="t-val">daily</span>
-<span class="t-ok">✓</span> monitoring     <span class="t-val">24×7</span>
-<span class="t-ok">✓</span> support        <span class="t-val">on call</span>
 
-<span class="t-prompt">$</span> <span class="cursor"></span></pre>
+    <div class="showcase" aria-hidden="true">
+      <div class="dash">
+        <div class="dash-bar"><span></span><span></span><span></span><em>dashboard</em></div>
+        <div class="dash-body">
+          <div class="kpis">
+            <div class="kpi"><p>Today's orders</p><strong>128</strong><small class="up">▲ 12%</small></div>
+            <div class="kpi"><p>Visits verified</p><strong>46</strong><small>by 9 reps</small></div>
+            <div class="kpi"><p>Low stock</p><strong>3</strong><small class="warn">items</small></div>
+          </div>
+          <div class="chart">
+            <p>Orders this week</p>
+            <div class="bars"><i style="height:38%"></i><i style="height:55%"></i><i style="height:47%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:84%"></i><i class="hi" style="height:100%"></i></div>
+          </div>
+          <ul class="rows">
+            <li><span>Sharma Traders</span><em>₹18,400</em><b>Delivered</b></li>
+            <li><span>City Retail</span><em>₹9,250</em><b class="pending">Packed</b></li>
+          </ul>
+        </div>
+      </div>
+      <div class="phone">
+        <div class="notch"></div>
+        <p class="ph-title">New visit</p>
+        <div class="ph-row ok">✓ Location verified</div>
+        <div class="ph-row ok">✓ Shop photo added</div>
+        <div class="ph-row">Mattress Q · 4</div>
+        <div class="ph-row">Pillow set · 10</div>
+        <div class="ph-btn">Book order</div>
+        <p class="ph-off">● Works offline</p>
+      </div>
     </div>
   </div>
 </section>
+
+<div class="promise-strip">
+  <ul class="container">
+    <li>Works offline</li>
+    <li>Daily backups</li>
+    <li>Hosting &amp; support included</li>
+    <li>Your data, always exportable</li>
+  </ul>
+</div>
 
 <section class="section" id="services">
   <div class="container">
