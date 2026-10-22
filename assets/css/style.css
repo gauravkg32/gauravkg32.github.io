@@ -197,3 +197,66 @@ h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: .5rem; }
   .phone { width: 140px; }
   .ph-row { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: .64rem; }
 }
+
+/* ---------- Motion & interaction ---------- */
+.scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 60; transform: scaleX(0); transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2)); pointer-events: none; }
+.nav { transition: background .3s, border-color .3s, box-shadow .3s; }
+.nav:not(.scrolled) { background: transparent; border-bottom-color: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+.nav.scrolled { box-shadow: 0 10px 30px -15px rgba(0, 0, 0, .8); }
+.nav-links a.active { color: var(--text) !important; }
+.nav-links a:not(.btn) { position: relative; }
+.nav-links a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; border-radius: 2px; background: var(--accent); }
+
+/* Hero spotlight that follows the cursor */
+.hero-spot { position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(520px circle at var(--mx, 75%) var(--my, 35%), rgba(var(--accent-rgb), .10), transparent 65%); transition: background .1s; }
+
+/* Hero entrance */
+.js [data-in] { opacity: 0; transform: translateY(22px); }
+.js.ready [data-in] { opacity: 1; transform: none; transition: opacity .9s cubic-bezier(.2, .7, .2, 1), transform .9s cubic-bezier(.2, .7, .2, 1); transition-delay: calc(var(--d, 0) * 110ms); }
+
+/* Headings: words slide up from a mask */
+h2.split .w { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .08em; margin-bottom: -.08em; }
+h2.split .wi { display: inline-block; transform: translateY(110%); transition: transform .8s cubic-bezier(.2, .7, .2, 1); transition-delay: calc(var(--i) * 55ms); }
+h2.split.in .wi { transform: none; }
+
+/* Cards glow under the pointer */
+.card { background: radial-gradient(360px circle at var(--cx, -400px) var(--cy, -400px), rgba(var(--accent-rgb), .09), transparent 60%), var(--surface); }
+
+/* Magnetic buttons ease back */
+.magnetic { transition: transform .25s cubic-bezier(.2, .7, .2, 1), background .2s; }
+
+/* Showcase tilt */
+.dash, .phone { transition: transform .4s cubic-bezier(.2, .7, .2, 1); will-change: transform; }
+
+/* Live dashboard */
+.bars i { transform-origin: bottom; transform: scaleY(0); transition: transform .9s cubic-bezier(.2, .7, .2, 1), height .6s ease; }
+.live .bars i { transform: scaleY(1); }
+.live .bars i:nth-child(2) { transition-delay: .06s; } .live .bars i:nth-child(3) { transition-delay: .12s; }
+.live .bars i:nth-child(4) { transition-delay: .18s; } .live .bars i:nth-child(5) { transition-delay: .24s; }
+.live .bars i:nth-child(6) { transition-delay: .3s; } .live .bars i:nth-child(7) { transition-delay: .36s; }
+.rows li { transition: opacity .5s, transform .5s cubic-bezier(.2, .7, .2, 1), border-color .8s; }
+.rows li.new { opacity: 0; transform: translateY(-10px); border-color: rgba(var(--accent-rgb), .6); }
+.kpi strong.bump { animation: bump .6s ease; }
+@keyframes bump { 0% { color: var(--accent); transform: scale(1.12); } 100% { color: var(--text); transform: none; } }
+.kpi strong { display: inline-block; transform-origin: left center; }
+.js .ph-row[data-step] { color: var(--muted); transition: color .3s, border-color .3s, background .3s; }
+.js .ph-row[data-step].done { color: var(--accent); border-color: rgba(var(--accent-rgb), .35); background: rgba(var(--accent-rgb), .06); }
+.ph-btn { transition: background .3s, color .3s, transform .2s; }
+.ph-btn.booked { background: var(--surface); color: var(--accent); box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), .5); animation: press .35s ease; }
+@keyframes press { 40% { transform: scale(.94); } }
+.live .ph-off::first-letter { color: var(--accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-in] { opacity: 1; transform: none; }
+  .bars i { transform: none; }
+  .js .ph-row[data-step] { color: var(--accent); }
+}
+.kpi small { display: block; }
+@media (max-width: 600px) {
+  .promise-strip ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .promise-strip li { font-size: .82rem; padding: .85rem .25rem; }
+  .promise-strip li:nth-child(odd) { border-right: 1px solid var(--border); }
+  .promise-strip li:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+}
