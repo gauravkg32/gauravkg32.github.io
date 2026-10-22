@@ -3,20 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0e17">
   {% seo %}
   {% feed_meta %}
+  <link rel="icon" href="{{ '/assets/logo.svg' | relative_url }}" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
-  <header class="nav">
-    <a class="logo" href="{{ '/' | relative_url }}">KG<span>_</span></a>
-    <nav>{% for item in site.nav %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endfor %}</nav>
+  <header class="nav" id="top">
+    <div class="container nav-inner">
+      <a class="brand" href="{{ '/' | relative_url }}">
+        <img src="{{ '/assets/logo.svg' | relative_url }}" alt="" width="28" height="28">
+        <span>{{ site.title }}</span>
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        {% for item in site.nav %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endfor %}
+        <a class="btn btn-sm" href="{{ '/#contact' | relative_url }}">Start a project</a>
+      </nav>
+    </div>
   </header>
+
   <main>{{ content }}</main>
-  <footer class="foot">
-    <p>© {{ site.time | date: "%Y" }} {{ site.title }} · built with Jekyll on GitHub Pages</p>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <a class="brand" href="{{ '/' | relative_url }}">
+          <img src="{{ '/assets/logo.svg' | relative_url }}" alt="" width="24" height="24">
+          <span>{{ site.title }}</span>
+        </a>
+        <p class="muted small">Websites, apps and business software · {{ site.location }}</p>
+      </div>
+      <div class="footer-links small">
+        {% if site.email != "" %}<a href="mailto:{{ site.email }}">Email</a>{% endif %}
+        {% if site.github != "" %}<a href="{{ site.github }}" target="_blank" rel="noopener">GitHub</a>{% endif %}
+        {% if site.linkedin != "" %}<a href="{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>{% endif %}
+        <span class="muted">© {{ site.time | date: "%Y" }} {{ site.title }}</span>
+      </div>
+    </div>
   </footer>
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>

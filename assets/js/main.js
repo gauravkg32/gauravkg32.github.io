@@ -1,10 +1,13 @@
-// Fade sections in as they scroll into view
-const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), { threshold: .15 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+// Mark JS as running so reveal animations only hide content when they can show it again
+document.documentElement.classList.add('js');
 
-// Typewriter effect for the tagline
-const t = document.getElementById('typed');
-if (t && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const text = t.dataset.text; t.textContent = ''; let i = 0;
-  (function type() { if (i <= text.length) { t.textContent = text.slice(0, i++); setTimeout(type, 35); } })();
+// Fade cards in as they scroll into view
+const els = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => io.observe(el));
+} else {
+  els.forEach(el => el.classList.add('in'));
 }

@@ -1,16 +1,18 @@
-title: Kumar Gaurav
-tagline: "I build websites — then turn them into apps. Fiction reader. Certified nerd."
-description: "Personal site and blog of Kumar Gaurav — web & app developer."
+title: Edgecraft Studio            # placeholder brand name
+founder: Kumar Gaurav
+tagline: "Websites, mobile apps and business software, built to work as hard as you do."
+description: "Edgecraft Studio designs and builds websites, mobile apps and custom business software for growing businesses. Founded by Kumar Gaurav."
 url: "https://gauravkg32.github.io"
 baseurl: ""
-email: "you@example.com"        # TODO: your email
-social:
-  github: "https://github.com/gauravkg32"
-  linkedin: ""                  # TODO
-  x: ""                         # TODO
+location: "Bhopal, India"
+email: ""                          # TODO: add a contact email; the Email button appears once set
+github: "https://github.com/gauravkg32"
+linkedin: ""                       # TODO
 nav:
-  - { title: Home, url: "/" }
-  - { title: Blog, url: "/blog/" }
+  - { title: Services, url: "/#services" }
+  - { title: Work, url: "/#work" }
+  - { title: Process, url: "/#process" }
+  - { title: About, url: "/#about" }
 markdown: kramdown
 permalink: /blog/:year/:month/:title/
 plugins: [jekyll-feed, jekyll-seo-tag]

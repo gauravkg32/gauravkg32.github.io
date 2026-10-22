@@ -1,55 +1,131 @@
 ---
 layout: default
 ---
-<section class="hero wrap">
-  <p class="mono accent">&gt; hello, world_</p>
-  <h1>{{ site.title }}</h1>
-  <p class="lead" id="typed" data-text="{{ site.tagline }}">{{ site.tagline }}</p>
-  <div class="cta">
-    <a class="btn" href="#work">See my work</a>
-    <a class="btn ghost" href="#contact">Say hi</a>
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Web &amp; app development studio · {{ site.location }}</p>
+    <h1>Software that fits the way <span class="grad">your business</span> works.</h1>
+    <p class="lead">{{ site.tagline }} From a fast company website to an app your field team uses every day.</p>
+    <div class="cta">
+      <a class="btn" href="#contact">Start a project</a>
+      <a class="btn btn-ghost" href="#work">See our work</a>
+    </div>
+    <ul class="hero-points">
+      <li>Website and app from one codebase</li>
+      <li>Works offline, built for Indian networks</li>
+      <li>You own the code</li>
+    </ul>
   </div>
 </section>
 
-<section class="wrap reveal" id="about">
-  <h2><span class="mono accent">01.</span> About</h2>
-  <p>Placeholder bio — I'm a developer who builds websites and turns them into apps people can
-  install on their phones. When I'm not shipping code, I'm usually lost in a fiction book,
-  arguing about sci-fi, or tinkering with something nerdy.</p>
-</section>
-
-<section class="wrap reveal" id="skills">
-  <h2><span class="mono accent">02.</span> What I do</h2>
-  <div class="grid">
-    <div class="card"><h3>Websites</h3><p>Fast, responsive sites from landing pages to full web apps.</p></div>
-    <div class="card"><h3>Web → App</h3><p>Turning websites into installable Android / iOS apps.</p></div>
-    <div class="card"><h3>UI &amp; Design</h3><p>Clean interfaces that feel good to use.</p></div>
+<section class="section" id="services">
+  <div class="container">
+    <p class="eyebrow">Services</p>
+    <h2>What we build</h2>
+    <div class="grid grid-3">
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8"/></svg>
+        </div>
+        <h3>Websites</h3>
+        <p>Fast, mobile-first websites that look sharp and bring in enquiries, from company sites to full web applications.</p>
+        <ul class="checks">
+          <li>Responsive design</li><li>SEO-ready and fast</li><li>Easy to update</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18.5h3"/></svg>
+        </div>
+        <h3>Mobile apps</h3>
+        <p>Android and iOS apps your customers and staff can install, built alongside your website so you get both for less.</p>
+        <ul class="checks">
+          <li>Android &amp; iOS</li><li>Works offline</li><li>Play Store publishing</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+        </div>
+        <h3>Business software</h3>
+        <p>Custom tools for orders, sales, inventory and field teams, replacing spreadsheets, paper and WhatsApp chaos.</p>
+        <ul class="checks">
+          <li>Order &amp; inventory systems</li><li>Field-sales apps</li><li>Owner dashboards</li>
+        </ul>
+      </article>
+    </div>
   </div>
 </section>
 
-<section class="wrap reveal" id="work">
-  <h2><span class="mono accent">03.</span> Work</h2>
-  <div class="grid">
-    <a class="card" href="#"><h3>Project One</h3><p>One-line description of a project. (placeholder)</p></a>
-    <a class="card" href="#"><h3>Project Two</h3><p>A website I converted into an app. (placeholder)</p></a>
-    <a class="card" href="#"><h3>Project Three</h3><p>Something fun and nerdy. (placeholder)</p></a>
+<section class="section section-alt" id="work">
+  <div class="container">
+    <p class="eyebrow">Selected work</p>
+    <h2>Built for real businesses</h2>
+    <div class="grid grid-3">
+      <article class="card work reveal">
+        <p class="work-kicker">Consumer brand · Field sales</p>
+        <h3>Offline field-sales app</h3>
+        <p>An Android app for sales reps to register retailers and book orders against a product catalogue, with GPS- and photo-verified visits, plus an admin dashboard for the owner. Built to keep working with no signal.</p>
+        <ul class="tags"><li>Android</li><li>Offline-first</li><li>Admin dashboard</li></ul>
+      </article>
+      <article class="card work reveal">
+        <p class="work-kicker">Healthcare · Operations</p>
+        <h3>Order management for diagnostic labs</h3>
+        <p>An installable web app for booking tests, tracking samples and payments, and sharing reports, designed so each lab gets its own branding from a single product.</p>
+        <ul class="tags"><li>Installable web app</li><li>Multi-client</li><li>Mobile-first</li></ul>
+      </article>
+      <article class="card work reveal">
+        <p class="work-kicker">Retail · Inventory</p>
+        <h3>Inventory management system</h3>
+        <p>Stock tracking across warehouse and showrooms for a retailer, with a clean web interface and a secure cloud database behind it.</p>
+        <ul class="tags"><li>React</li><li>Cloud database</li><li>Prototype</li></ul>
+      </article>
+    </div>
   </div>
 </section>
 
-<section class="wrap reveal" id="writing">
-  <h2><span class="mono accent">04.</span> Latest writing</h2>
-  <ul class="posts">
-    {% for post in site.posts limit:3 %}
-    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a><span class="mono muted">{{ post.date | date: "%b %Y" }}</span></li>
-    {% endfor %}
-  </ul>
+<section class="section" id="process">
+  <div class="container">
+    <p class="eyebrow">Process</p>
+    <h2>How we work</h2>
+    <ol class="steps">
+      <li class="reveal"><span class="step-n">01</span><h3>Understand</h3><p>We learn how your business runs today and what's slowing it down.</p></li>
+      <li class="reveal"><span class="step-n">02</span><h3>Design</h3><p>You see screens and a clear plan with fixed scope before any build starts.</p></li>
+      <li class="reveal"><span class="step-n">03</span><h3>Build</h3><p>Regular working demos, so you're never waiting in the dark.</p></li>
+      <li class="reveal"><span class="step-n">04</span><h3>Launch &amp; support</h3><p>We deploy, train your team, and stay on hand as you grow.</p></li>
+    </ol>
+  </div>
 </section>
 
-<section class="wrap reveal" id="contact">
-  <h2><span class="mono accent">05.</span> Contact</h2>
-  <p>Got a project or a book recommendation? I'm all ears.</p>
-  <div class="cta">
-    <a class="btn" href="mailto:{{ site.email }}">Email me</a>
-    {% for s in site.social %}{% if s[1] != "" %}<a class="btn ghost" href="{{ s[1] }}" target="_blank" rel="noopener">{{ s[0] | capitalize }}</a>{% endif %}{% endfor %}
+<section class="section section-alt" id="about">
+  <div class="container about">
+    <div>
+      <p class="eyebrow">About</p>
+      <h2>A small studio, close to your business</h2>
+    </div>
+    <div class="about-body">
+      <p>{{ site.title }} is a web and app development studio founded by <strong>{{ site.founder }}</strong>, based in {{ site.location }}. We work directly with business owners: no layers of account managers, just the people building your product.</p>
+      <p>Our focus is practical software: tools that your team actually uses, that work on everyday phones and patchy networks, and that you fully own.</p>
+      <p class="founder">
+        <span class="avatar" aria-hidden="true">KG</span>
+        <span><strong>{{ site.founder }}</strong><br><span class="muted small">Founder &amp; lead developer</span></span>
+        {% if site.github != "" %}<a class="small" href="{{ site.github }}" target="_blank" rel="noopener">GitHub ↗</a>{% endif %}
+        {% if site.linkedin != "" %}<a class="small" href="{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn ↗</a>{% endif %}
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-card reveal">
+      <h2>Have a project in mind?</h2>
+      <p class="lead">Tell us what you need. We'll reply with honest advice and a clear quote.</p>
+      <div class="cta cta-center">
+        {% if site.email != "" %}<a class="btn" href="mailto:{{ site.email }}?subject=Project%20enquiry">Email us</a>{% endif %}
+        {% if site.linkedin != "" %}<a class="btn btn-ghost" href="{{ site.linkedin }}" target="_blank" rel="noopener">Message on LinkedIn</a>{% endif %}
+        {% if site.github != "" %}<a class="btn btn-ghost" href="{{ site.github }}" target="_blank" rel="noopener">View GitHub</a>{% endif %}
+      </div>
+    </div>
   </div>
 </section>
