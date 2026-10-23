@@ -190,4 +190,95 @@
     };
     setTimeout(() => { tick(); setInterval(tick, 5200); }, 1600);
   }
+
+  // Quick menu: Ctrl+K / Cmd+K opens a searchable list of sections and actions
+  const cmdk = $('.cmdk');
+  if (cmdk) {
+    const body = document.body;
+    const email = body.dataset.email, github = body.dataset.github, linkedin = body.dataset.linkedin;
+    const onHome = location.pathname === '/' || location.pathname === '/index.html';
+    const go = id => () => {
+      const el = document.getElementById(id);
+      if (onHome && el) el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+      else location.href = '/#' + id;
+    };
+    const ico = {
+      go: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+      star: '<path d="M12 3v18M3 12h18"/>',
+      mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+      copy: '<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>',
+      ext: '<path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>',
+    };
+    const items = [
+      { label: 'Start a project', group: 'Action', icon: 'star', keys: 'contact hire quote enquiry', run: go('contact') },
+      { label: 'Home', group: 'Go to', icon: 'go', keys: 'top start', run: go('home') },
+      { label: 'Services', group: 'Go to', icon: 'go', keys: 'what we build websites apps software', run: go('services') },
+      { label: 'Selected work', group: 'Go to', icon: 'go', keys: 'projects portfolio case studies', run: go('work') },
+      { label: 'How we work', group: 'Go to', icon: 'go', keys: 'process steps', run: go('process') },
+      { label: 'Pricing', group: 'Go to', icon: 'go', keys: 'price cost plans monthly fee', run: go('pricing') },
+      { label: 'About', group: 'Go to', icon: 'go', keys: 'founder team studio', run: go('about') },
+      { label: 'Contact', group: 'Go to', icon: 'go', keys: 'reach talk message', run: go('contact') },
+    ];
+    if (email) {
+      items.push({ label: 'Email us', group: 'Action', icon: 'mail', keys: 'mail ' + email, run: () => { location.href = 'mailto:' + email; } });
+      items.push({ label: 'Copy email address', group: 'Action', icon: 'copy', keys: 'clipboard ' + email, run: () => { if (navigator.clipboard) navigator.clipboard.writeText(email); } });
+    }
+    if (github) items.push({ label: 'GitHub', group: 'Link', icon: 'ext', keys: 'code repositories', run: () => open(github, '_blank', 'noopener') });
+    if (linkedin) items.push({ label: 'LinkedIn', group: 'Link', icon: 'ext', keys: 'profile', run: () => open(linkedin, '_blank', 'noopener') });
+
+    const input = $('.cmdk-input', cmdk), list = $('.cmdk-list', cmdk);
+    let shown = items, sel = 0, lastFocus = null;
+    const esc = t => t.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+    const render = () => {
+      if (!shown.length) { list.innerHTML = '<li class="cmdk-empty">No matches. Try "pricing" or "work".</li>'; input.removeAttribute('aria-activedescendant'); return; }
+      list.innerHTML = shown.map((it, i) =>
+        '<li id="cmdk-' + i + '" class="cmdk-item' + (i === sel ? ' sel' : '') + '" role="option" aria-selected="' + (i === sel) + '" data-i="' + i + '">' +
+        '<svg viewBox="0 0 24 24" aria-hidden="true">' + ico[it.icon] + '</svg><span>' + esc(it.label) + '</span><em>' + it.group + '</em></li>'
+      ).join('');
+      input.setAttribute('aria-activedescendant', 'cmdk-' + sel);
+      const cur = list.children[sel];
+      if (cur && cur.scrollIntoView) cur.scrollIntoView({ block: 'nearest' });
+    };
+    const openMenu = () => {
+      lastFocus = document.activeElement;
+      cmdk.hidden = false;
+      root.classList.add('cmdk-open');
+      input.value = ''; shown = items; sel = 0; render();
+      requestAnimationFrame(() => { cmdk.classList.add('show'); input.focus(); });
+    };
+    const closeMenu = () => {
+      cmdk.classList.remove('show');
+      root.classList.remove('cmdk-open');
+      cmdk.hidden = true;
+      if (lastFocus && lastFocus !== document.body && lastFocus.focus) lastFocus.focus();
+      else input.blur();
+    };
+    const runSel = () => { const it = shown[sel]; if (it) { closeMenu(); it.run(); } };
+
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      shown = q ? items.filter(it => (it.label + ' ' + it.keys).toLowerCase().includes(q)) : items;
+      sel = 0; render();
+    });
+    input.addEventListener('keydown', e => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); sel = Math.min(sel + 1, shown.length - 1); render(); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); sel = Math.max(sel - 1, 0); render(); }
+      else if (e.key === 'Enter') { e.preventDefault(); runSel(); }
+      else if (e.key === 'Tab') { e.preventDefault(); }
+    });
+    list.addEventListener('click', e => { const li = e.target.closest('.cmdk-item'); if (li) { sel = +li.dataset.i; runSel(); } });
+    list.addEventListener('pointermove', e => {
+      const li = e.target.closest('.cmdk-item');
+      if (li && +li.dataset.i !== sel) { sel = +li.dataset.i; render(); }
+    });
+    $$('[data-cmdk-close]', cmdk).forEach(el => el.addEventListener('click', closeMenu));
+    $$('.cmdk-hint').forEach(el => el.addEventListener('click', openMenu));
+    addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); cmdk.hidden ? openMenu() : closeMenu(); }
+      else if (e.key === 'Escape' && !cmdk.hidden) closeMenu();
+    });
+    if (/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)) {
+      $$('.cmdk-hint kbd').forEach(k => { if (k.textContent === 'Ctrl') k.textContent = '⌘'; });
+    }
+  }
 })();
