@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<section class="hero">
+<section class="hero" id="home">
   <div class="hero-spot" aria-hidden="true"></div>
   <div class="container hero-grid">
     <div>
@@ -60,7 +60,7 @@ layout: default
   <div class="container">
     <p class="eyebrow">Services</p>
     <h2>What we build</h2>
-    <div class="grid grid-3">
+    <div class="grid grid-3" data-carousel>
       <article class="card reveal">
         <div class="icon" aria-hidden="true">
           <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8"/></svg>
@@ -99,20 +99,23 @@ layout: default
   <div class="container">
     <p class="eyebrow">Selected work</p>
     <h2>Built for real businesses</h2>
-    <div class="grid grid-3">
+    <div class="grid grid-3" data-carousel>
       <article class="card work reveal">
+        <div class="thumb" aria-hidden="true"><div class="t-map"><span class="pin"></span><span class="pin p2"></span><span class="pin p3"></span><span class="route"></span></div><div class="t-list"><i class="ok">✓ Visit verified</i><i class="ok">✓ Photo</i><i>Order · 14 items</i></div></div>
         <p class="work-kicker">Consumer brand · Field sales</p>
         <h3>Offline field-sales app</h3>
         <p>An Android app for sales reps to register retailers and book orders against a product catalogue, with GPS- and photo-verified visits, plus an admin dashboard for the owner. Built to keep working with no signal.</p>
         <ul class="tags"><li>Android</li><li>Offline-first</li><li>Admin dashboard</li></ul>
       </article>
       <article class="card work reveal">
+        <div class="thumb" aria-hidden="true"><div class="t-table"><i><b>CBC</b><em class="s-done">Report ready</em></i><i><b>Lipid profile</b><em class="s-prog">Processing</em></i><i><b>Thyroid</b><em class="s-new">Sample due</em></i><i><b>HbA1c</b><em class="s-done">Report ready</em></i></div></div>
         <p class="work-kicker">Healthcare · Operations</p>
         <h3>Order management for diagnostic labs</h3>
         <p>An installable web app for booking tests, tracking samples and payments, and sharing reports, designed so each lab gets its own branding from a single product.</p>
         <ul class="tags"><li>Installable web app</li><li>Multi-client</li><li>Mobile-first</li></ul>
       </article>
       <article class="card work reveal">
+        <div class="thumb" aria-hidden="true"><div class="t-stock"><i><b>Warehouse</b><span style="--w:82%"></span></i><i><b>Showroom A</b><span style="--w:54%"></span></i><i><b>Showroom B</b><span class="low" style="--w:18%"></span></i></div></div>
         <p class="work-kicker">Retail · Inventory</p>
         <h3>Inventory management system</h3>
         <p>Stock tracking across warehouse and showrooms for a retailer, with a clean web interface and a secure cloud database behind it.</p>
@@ -139,7 +142,7 @@ layout: default
   <div class="container">
     <p class="eyebrow">Pricing</p>
     <h2>How pricing works</h2>
-    <div class="grid grid-3">
+    <div class="grid grid-3" data-carousel>
       <article class="card reveal">
         <p class="work-kicker">Once</p>
         <h3>Setup</h3>

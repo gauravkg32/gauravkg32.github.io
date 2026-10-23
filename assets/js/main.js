@@ -31,11 +31,44 @@
   const links = $$('.nav-links a[href*="#"]:not(.btn)');
   const byId = {};
   links.forEach(a => { byId[a.getAttribute('href').split('#')[1]] = a; });
+  // Phone tab bar: sections without their own tab light up the nearest one
+  const tabs = $$('.tabbar a');
+  const tabFor = { home: 'home', services: 'services', work: 'work', process: 'work', pricing: 'pricing', about: 'contact', contact: 'contact' };
   const spy = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
     const a = byId[e.target.id];
-    if (a && e.isIntersecting) { links.forEach(l => l.classList.remove('active')); a.classList.add('active'); }
+    links.forEach(l => l.classList.toggle('active', l === a));
+    const t = tabFor[e.target.id];
+    tabs.forEach(l => l.classList.toggle('active', l.dataset.tab === t));
   }), { rootMargin: '-45% 0px -50% 0px' });
-  Object.keys(byId).forEach(id => { const s = document.getElementById(id); if (s) spy.observe(s); });
+  Object.keys(tabFor).forEach(id => { const s = document.getElementById(id); if (s) spy.observe(s); });
+
+  // Phone carousels: card grids become swipeable rows with dots
+  $$('[data-carousel]').forEach(track => {
+    const cards = Array.from(track.children);
+    const dots = document.createElement('div');
+    dots.className = 'dots';
+    dots.setAttribute('aria-hidden', 'true');
+    cards.forEach((c, i) => {
+      const d = document.createElement('button');
+      d.type = 'button';
+      d.tabIndex = -1;
+      d.addEventListener('click', () => track.scrollTo({ left: c.offsetLeft - track.offsetLeft - 16, behavior: reduced ? 'auto' : 'smooth' }));
+      dots.appendChild(d);
+    });
+    track.after(dots);
+    const setDot = () => {
+      const mid = track.scrollLeft + track.clientWidth / 2;
+      let best = 0, dist = Infinity;
+      cards.forEach((c, i) => {
+        const d = Math.abs(c.offsetLeft - track.offsetLeft + c.offsetWidth / 2 - mid);
+        if (d < dist) { dist = d; best = i; }
+      });
+      Array.from(dots.children).forEach((d, i) => d.classList.toggle('on', i === best));
+    };
+    setDot();
+    track.addEventListener('scroll', setDot, { passive: true });
+  });
 
   // Section headings slide up word by word
   if (!reduced) {
