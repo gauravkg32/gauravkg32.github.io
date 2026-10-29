@@ -1,20 +1,22 @@
-title: Edgecraft Studio            # placeholder brand name
+title: Kumar Gaurav
 founder: Kumar Gaurav
-tagline: "We build it, run it and keep it improving, so you can focus on your business."
-description: "Edgecraft Studio builds, hosts and maintains websites, mobile apps and business software for growing businesses, as a managed service. Founded by Kumar Gaurav."
+tagline: "I build software that runs businesses: websites, apps and the tools behind them."
+description: "Kumar Gaurav, developer and founder of NOZ Studio, a managed web and app studio that builds, hosts and maintains software for growing businesses."
+studio: NOZ Studio
+studio_tagline: "A boost for your business."
+studio_pitch: "We build it, run it and keep it improving, so you can focus on your business."
 url: "https://gauravkg32.github.io"
 baseurl: ""
 location: "India"
-email: ""                          # TODO: add a contact email; the Email button appears once set
+email: ""                          # TODO: add a contact email (e.g. hello@nozstudio.com); the Email button appears once set
 github: "https://github.com/gauravkg32"
 linkedin: ""                       # TODO
 nav:
-  - { title: Services, url: "/#services" }
+  - { title: NOZ Studio, url: "/#noz" }
   - { title: Work, url: "/#work" }
-  - { title: Process, url: "/#process" }
   - { title: Pricing, url: "/#pricing" }
   - { title: About, url: "/#about" }
 markdown: kramdown
 permalink: /blog/:year/:month/:title/
 plugins: [jekyll-feed, jekyll-seo-tag]
-exclude: [README.md, Gemfile, Gemfile.lock]
+exclude: [README.md, CLAUDE.md, Gemfile, Gemfile.lock]

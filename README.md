@@ -1,11 +1,13 @@
-# Edgecraft Studio site
+# Kumar Gaurav: personal site
 
-Studio site (placeholder brand: Edgecraft Studio, founded by Kumar Gaurav), built with Jekyll on GitHub Pages: https://gauravkg32.github.io
+Personal page of Kumar Gaurav, founder of **NOZ Studio**. Built with Jekyll on GitHub Pages: https://gauravkg32.github.io
+
+Right now the page is mostly about NOZ Studio. Other projects get added to the Projects section as they launch.
 
 | Want to change… | Edit |
 |---|---|
-| Brand name, tagline, email, LinkedIn, location | `_config.yml` (Email/LinkedIn buttons appear once filled in) |
-| Hero, services, work, process, about, contact | `index.html` |
+| Name, tagline, studio name/pitch, email, LinkedIn | `_config.yml` (Email/LinkedIn buttons appear once filled in) |
+| Hero, NOZ Studio section, about, projects, contact | `index.html` |
 | Colors / fonts | `assets/css/style.css` (tokens at the top) |
-| Logo / favicon | `assets/logo.svg` |
-| Blog posts (not linked in the nav yet) | add `_posts/YYYY-MM-DD-title.md`, list at `/blog/` |
+| Personal logo / favicon | `assets/logo.svg` |
+| NOZ Studio logo | `assets/noz.svg` |

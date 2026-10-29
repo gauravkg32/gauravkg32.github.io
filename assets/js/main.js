@@ -33,7 +33,7 @@
   links.forEach(a => { byId[a.getAttribute('href').split('#')[1]] = a; });
   // Phone tab bar: sections without their own tab light up the nearest one
   const tabs = $$('.tabbar a');
-  const tabFor = { home: 'home', services: 'services', work: 'work', process: 'work', pricing: 'pricing', about: 'contact', contact: 'contact' };
+  const tabFor = { home: 'home', noz: 'noz', services: 'noz', work: 'work', process: 'work', pricing: 'noz', about: 'about', projects: 'about', contact: 'contact' };
   const spy = new IntersectionObserver(entries => entries.forEach(e => {
     if (!e.isIntersecting) return;
     const a = byId[e.target.id];
@@ -72,7 +72,7 @@
 
   // Section headings slide up word by word
   if (!reduced) {
-    $$('.section h2, .contact-card h2').forEach(h => {
+    $$('.section h2:not(.noz-title), .contact-card h2').forEach(h => {
       const text = h.textContent.trim();
       h.setAttribute('aria-label', text);
       h.innerHTML = text.split(/\s+/).map((w, i) =>
@@ -119,14 +119,15 @@
     });
 
     const show = $('.showcase');
-    if (show && hero) {
+    if (show) {
       const dash = $('.dash', show), phone = $('.phone', show);
-      hero.addEventListener('pointermove', e => {
+      const zone = show.closest('section') || hero;
+      zone.addEventListener('pointermove', e => {
         const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
         dash.style.transform = 'perspective(1200px) rotateY(' + (x * 6) + 'deg) rotateX(' + (-y * 5) + 'deg)';
         phone.style.transform = 'translate(' + (x * 18) + 'px,' + (y * 14) + 'px)';
       });
-      hero.addEventListener('pointerleave', () => { dash.style.transform = ''; phone.style.transform = ''; });
+      zone.addEventListener('pointerleave', () => { dash.style.transform = ''; phone.style.transform = ''; });
     }
   }
 
@@ -210,13 +211,15 @@
       ext: '<path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>',
     };
     const items = [
-      { label: 'Start a project', group: 'Action', icon: 'star', keys: 'contact hire quote enquiry', run: go('contact') },
-      { label: 'Home', group: 'Go to', icon: 'go', keys: 'top start', run: go('home') },
-      { label: 'Services', group: 'Go to', icon: 'go', keys: 'what we build websites apps software', run: go('services') },
-      { label: 'Selected work', group: 'Go to', icon: 'go', keys: 'projects portfolio case studies', run: go('work') },
-      { label: 'How we work', group: 'Go to', icon: 'go', keys: 'process steps', run: go('process') },
+      { label: 'Get in touch', group: 'Action', icon: 'star', keys: 'contact hire quote enquiry project', run: go('contact') },
+      { label: 'Home', group: 'Go to', icon: 'go', keys: 'top start kumar gaurav', run: go('home') },
+      { label: 'NOZ Studio', group: 'Go to', icon: 'go', keys: 'noz studio business software company', run: go('noz') },
+      { label: 'NOZ services', group: 'Go to', icon: 'go', keys: 'what we build websites apps software', run: go('services') },
+      { label: 'Selected work', group: 'Go to', icon: 'go', keys: 'portfolio case studies clients', run: go('work') },
+      { label: 'How NOZ works', group: 'Go to', icon: 'go', keys: 'process steps', run: go('process') },
       { label: 'Pricing', group: 'Go to', icon: 'go', keys: 'price cost plans monthly fee', run: go('pricing') },
-      { label: 'About', group: 'Go to', icon: 'go', keys: 'founder team studio', run: go('about') },
+      { label: 'About me', group: 'Go to', icon: 'go', keys: 'founder bio kumar gaurav', run: go('about') },
+      { label: 'Projects', group: 'Go to', icon: 'go', keys: 'ventures side projects', run: go('projects') },
       { label: 'Contact', group: 'Go to', icon: 'go', keys: 'reach talk message', run: go('contact') },
     ];
     if (email) {

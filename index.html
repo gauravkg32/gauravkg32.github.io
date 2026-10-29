@@ -1,20 +1,52 @@
 ---
 layout: default
 ---
-<section class="hero" id="home">
+<section class="hero hero-me" id="home">
   <div class="hero-spot" aria-hidden="true"></div>
   <div class="container hero-grid">
     <div>
-      <p class="eyebrow" data-in style="--d:0">Managed web &amp; app studio · {{ site.location }}</p>
-      <h1 data-in style="--d:1">Your orders, sales and stock. <span class="grad">One app.</span></h1>
-      <p class="lead" data-in style="--d:2">Ready-made business software, tailored to how you work. {{ site.tagline }}</p>
+      <p class="eyebrow" data-in style="--d:0">Hi, I'm</p>
+      <h1 data-in style="--d:1">{{ site.founder }}<span class="grad">.</span></h1>
+      <p class="lead" data-in style="--d:2">{{ site.tagline }} Right now that happens through <strong class="hl">{{ site.studio }}</strong>, my managed web and app studio.</p>
       <div class="cta" data-in style="--d:3">
-        <a class="btn magnetic" href="#contact">Start a project</a>
-        <a class="btn btn-ghost magnetic" href="#work">See our work</a>
+        <a class="btn magnetic" href="#noz">Explore {{ site.studio }}</a>
+        <a class="btn btn-ghost magnetic" href="#contact">Get in touch</a>
       </div>
     </div>
 
-    <div class="showcase" data-in style="--d:4" aria-hidden="true">
+    <aside class="me-card" data-in style="--d:4" aria-label="Now">
+      <div class="me-head">
+        <span class="avatar" aria-hidden="true">KG</span>
+        <span><strong>{{ site.founder }}</strong><br><span class="muted small">Developer · {{ site.location }}</span></span>
+      </div>
+      <p class="me-label">Now</p>
+      <ul class="me-now">
+        <li><span class="dot live"></span><span>Building <a href="#noz">{{ site.studio }}</a></span><em>founder</em></li>
+        <li><span class="dot"></span><span>Websites turned into apps</span><em>daily</em></li>
+        <li><span class="dot soon"></span><span>Next project</span><em>coming soon</em></li>
+      </ul>
+      <p class="me-label">Off the clock</p>
+      <p class="muted small">Lost in a fiction book, or tinkering with something nerdy.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="section noz-intro" id="noz">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="noz-brand">
+        <img src="{{ '/assets/noz.svg' | relative_url }}" alt="" width="52" height="52">
+        <span><strong class="noz-word">NOZ</strong><span class="muted"> Studio</span></span>
+      </div>
+      <h2 class="noz-title">{{ site.studio_tagline }}</h2>
+      <p class="lead">Your orders, sales and stock in one app: ready-made business software, tailored to how you work. {{ site.studio_pitch }}</p>
+      <div class="cta">
+        <a class="btn magnetic" href="#contact">Start a project</a>
+        <a class="btn btn-ghost magnetic" href="#work">See the work</a>
+      </div>
+    </div>
+
+    <div class="showcase reveal" aria-hidden="true">
       <div class="dash">
         <div class="dash-bar"><span></span><span></span><span></span><em>dashboard</em></div>
         <div class="dash-body">
@@ -58,7 +90,7 @@ layout: default
 
 <section class="section" id="services">
   <div class="container">
-    <p class="eyebrow">Services</p>
+    <p class="eyebrow">NOZ Studio · Services</p>
     <h2>What we build</h2>
     <div class="grid grid-3" data-carousel>
       <article class="card reveal">
@@ -97,7 +129,7 @@ layout: default
 
 <section class="section section-alt" id="work">
   <div class="container">
-    <p class="eyebrow">Selected work</p>
+    <p class="eyebrow">NOZ Studio · Selected work</p>
     <h2>Built for real businesses</h2>
     <div class="grid grid-3" data-carousel>
       <article class="card work reveal">
@@ -127,7 +159,7 @@ layout: default
 
 <section class="section" id="process">
   <div class="container">
-    <p class="eyebrow">Process</p>
+    <p class="eyebrow">NOZ Studio · Process</p>
     <h2>How we work</h2>
     <ol class="steps">
       <li class="reveal"><span class="step-n">01</span><h3>Understand</h3><p>We learn how your business runs today and what's slowing it down.</p></li>
@@ -140,7 +172,7 @@ layout: default
 
 <section class="section section-alt" id="pricing">
   <div class="container">
-    <p class="eyebrow">Pricing</p>
+    <p class="eyebrow">NOZ Studio · Pricing</p>
     <h2>How pricing works</h2>
     <div class="grid grid-3" data-carousel>
       <article class="card reveal">
@@ -169,15 +201,16 @@ layout: default
 <section class="section" id="about">
   <div class="container about">
     <div>
-      <p class="eyebrow">About</p>
-      <h2>A small studio, close to your business</h2>
+      <p class="eyebrow">About me</p>
+      <h2>Developer, founder, certified nerd</h2>
     </div>
     <div class="about-body">
-      <p>{{ site.title }} is a web and app development studio founded by <strong>{{ site.founder }}</strong>, based in {{ site.location }}. We work directly with business owners: no layers of account managers, just the people building your product.</p>
-      <p>Our focus is practical software: tools that your team actually uses and that work on everyday phones and patchy networks. We don't hand over and disappear; we stay with you, keeping your software running and improving for the long term.</p>
+      <p>I'm <strong>{{ site.founder }}</strong>, a developer from {{ site.location }}. I build websites and turn them into apps people actually use: field-sales tools that work with no signal, order systems for labs and shops, inventory dashboards for retailers.</p>
+      <p>Most of my time now goes into <strong>{{ site.studio }}</strong>, where I build business software and keep it running for my clients long after launch. I have a few more projects planned, and they'll show up here as they launch.</p>
+      <p>Outside work, I'm usually deep in a fiction book or tinkering with something nerdy.</p>
       <p class="founder">
         <span class="avatar" aria-hidden="true">KG</span>
-        <span><strong>{{ site.founder }}</strong><br><span class="muted small">Founder &amp; lead developer</span></span>
+        <span><strong>{{ site.founder }}</strong><br><span class="muted small">Founder, {{ site.studio }}</span></span>
         {% if site.github != "" %}<a class="small" href="{{ site.github }}" target="_blank" rel="noopener">GitHub ↗</a>{% endif %}
         {% if site.linkedin != "" %}<a class="small" href="{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn ↗</a>{% endif %}
       </p>
@@ -185,13 +218,35 @@ layout: default
   </div>
 </section>
 
+<section class="section section-alt" id="projects">
+  <div class="container">
+    <p class="eyebrow">Projects</p>
+    <h2>Things I'm building</h2>
+    <div class="grid grid-3" data-carousel>
+      <a class="card project reveal" href="#noz">
+        <img src="{{ '/assets/noz.svg' | relative_url }}" alt="" width="44" height="44">
+        <p class="work-kicker">Live · Founder</p>
+        <h3>NOZ Studio</h3>
+        <p>A managed web and app studio. Business software for orders, sales and stock, built and run for growing businesses.</p>
+        <span class="small">Explore NOZ Studio →</span>
+      </a>
+      <article class="card project project-soon reveal">
+        <div class="soon-icon" aria-hidden="true">+</div>
+        <p class="work-kicker">Coming soon</p>
+        <h3>Next project</h3>
+        <p>Something new is in the works. Check back soon.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="contact">
   <div class="container">
     <div class="contact-card reveal">
-      <h2>Have a project in mind?</h2>
-      <p class="lead">Tell us what you need. We'll reply with honest advice and a clear quote.</p>
+      <h2>Let's build something</h2>
+      <p class="lead">Got a project for NOZ Studio, or just want to say hi? I read every message and reply with honest advice.</p>
       <div class="cta cta-center">
-        {% if site.email != "" %}<a class="btn" href="mailto:{{ site.email }}?subject=Project%20enquiry">Email us</a>{% endif %}
+        {% if site.email != "" %}<a class="btn" href="mailto:{{ site.email }}?subject=Project%20enquiry">Email me</a>{% endif %}
         {% if site.linkedin != "" %}<a class="btn btn-ghost" href="{{ site.linkedin }}" target="_blank" rel="noopener">Message on LinkedIn</a>{% endif %}
         {% if site.github != "" %}<a class="btn btn-ghost" href="{{ site.github }}" target="_blank" rel="noopener">View GitHub</a>{% endif %}
       </div>
