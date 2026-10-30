@@ -1,4 +1,4 @@
-# NOZ Studio Brand Guidelines v1.1
+# NOZ Studio Brand Guidelines v1.2
 
 > Last updated: 31 Oct 2026
 > Status: Final (logo and colours decided 30 Oct 2026)
@@ -115,10 +115,10 @@ An open nozzle tilted up 25°, a blue flame out of the open end, green fill up t
 | noz-logo-light.svg / .pdf | White and pale backgrounds, print |
 | noz-studio-lockup.svg / -light.svg / -light.pdf | Where the full name "NOZ Studio" matters |
 | noz-logo-black.svg / .pdf, noz-logo-white.svg | One colour: stamps, engraving, photos |
-| noz-icon.svg / noz-icon-light.svg | Icon without lettering, small spaces |
+| noz-icon.svg / noz-icon-light.svg | No lettering: below 40 px only (browser tabs, tiny UI) |
 | noz-favicon.svg / noz-favicon-32.png | Browser tabs |
 | noz-apple-touch-icon.png | iPhone home screen (180 px) |
-| noz-avatar-400.png | Social profile pictures (safe for a circle crop) |
+| noz-avatar-400.png | Social profile pictures: logo with NOZ, safe for a circle crop |
 
 Regenerate everything with `python _tools/make_logos.py assets/brand` then `python _tools/export_brand.py assets/brand`. Never edit the files by hand.
 
@@ -128,10 +128,13 @@ Keep empty space around the logo at least as tall as the nozzle's body. No text,
 
 ### Minimum Size
 
-| Version | Screen | Print |
-|---------|--------|-------|
-| Full logo or lockup | 120 px wide | 35 mm wide |
-| Icon | 24 px (32 px in UI) | 10 mm |
+Pick the version by how big the logo will appear. The lettering needs room; STUDIO is much smaller than NOZ.
+
+| Version | Use from | Print |
+|---------|----------|-------|
+| NOZ Studio lockup (with STUDIO) | 130 px wide; 160 px in a round avatar | 35 mm wide |
+| Logo with NOZ | 40 px wide or tall | 10 mm |
+| No lettering | Below 40 px only (browser tabs) | Not for print |
 
 ### Don'ts
 
@@ -320,5 +323,6 @@ Owner dashboard with order bars and a low-stock alert, terminal green on near-bl
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 1.2 | 31 Oct 2026 | Size tiers: lockup from 130 px, NOZ from 40 px, no lettering only below 40 px; avatar and iPhone icon now show NOZ |
 | 1.1 | 31 Oct 2026 | Messaging, voice traits, tone by context, semantic colours, imagery, larger clear space, PNG/PDF exports |
 | 1.0 | 30 Oct 2026 | Final logo (25° open nozzle) and colours (green + sky) |

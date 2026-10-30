@@ -81,6 +81,7 @@ for name, label, note in extra_files:
                       f'<button data-bin="{name}" hidden>Download</button></div>')
 out = (tpl.replace("{{HERO}}", uri(files["noz-logo.svg"]["svg"]))
           .replace("{{ICON}}", uri(files["noz-icon.svg"]["svg"]))
+          .replace("{{LOCKUP}}", uri(files["noz-studio-lockup.svg"]["svg"]))
           .replace("{{TILES}}", "".join(tiles))
           .replace("{{DONTS}}", dont_html)
           .replace("{{SWATCHES}}", sw)

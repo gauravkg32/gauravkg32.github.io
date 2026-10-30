@@ -51,8 +51,8 @@ def pdf(name, src_svg):
 
 
 png("noz-favicon-32.png", "noz-favicon.svg", 32, 32)
-png("noz-apple-touch-icon.png", "noz-icon.svg", 180, 180, scale=.86, bg="#0A0D0C")  # iOS rounds the corners itself
-png("noz-avatar-400.png", "noz-icon.svg", 400, 400, scale=.74, bg="#0A0D0C")  # safe inside a circle crop
+png("noz-apple-touch-icon.png", "noz-logo.svg", 180, 180, scale=.9, bg="#0A0D0C")  # iOS rounds the corners itself
+png("noz-avatar-400.png", "noz-logo.svg", 400, 400, scale=.8, bg="#0A0D0C")  # safe inside a circle crop; shown at 40-170 px, so NOZ but no STUDIO
 for n in ["noz-logo-light", "noz-studio-lockup-light", "noz-logo-black"]:
     pdf(n + ".pdf", n + ".svg")
 

@@ -68,9 +68,9 @@ files = {
     "noz-studio-lockup-light.svg": ("NOZ Studio lockup, light", "Invoices, letters, documents", "light", svg(PALETTES["light"], studio=True)),
     "noz-logo-black.svg":          ("One colour, black", "Print, stamps, faxes, engraving", "light", svg(PALETTES["black"])),
     "noz-logo-white.svg":          ("One colour, white", "On photos and coloured backgrounds", "photo", svg(PALETTES["white"])),
-    "noz-icon.svg":                ("Icon", "Avatars and small spaces, dark", "dark", svg(PALETTES["dark"], lettering=False)),
-    "noz-icon-light.svg":          ("Icon, light backgrounds", "Avatars and small spaces, light", "light", svg(PALETTES["light"], lettering=False)),
-    "noz-favicon.svg":             ("Favicon and app icon", "Browser tabs and home screens", "none", svg(PALETTES["dark"], lettering=False, box=FAVBOX, bg=("#0A0D0C", 110))),
+    "noz-icon.svg":                ("No lettering", "Browser tabs and tiny spaces, under 40 px", "dark", svg(PALETTES["dark"], lettering=False)),
+    "noz-icon-light.svg":          ("No lettering, light", "Under 40 px on light backgrounds", "light", svg(PALETTES["light"], lettering=False)),
+    "noz-favicon.svg":             ("Favicon", "Browser tabs", "none", svg(PALETTES["dark"], lettering=False, box=FAVBOX, bg=("#0A0D0C", 110))),
 }
 # Shown only as "don't" examples on the page; not saved as files.
 extras = {
