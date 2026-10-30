@@ -12,8 +12,9 @@ Personal page of Kumar Gaurav, with his managed web and app studio **NOZ Studio*
 - **Dropped names:** Edgecraft Studio, the old placeholder (edgecraftstudio.com is a live same-name US software studio). Techweaver, Technoz, Pitstop and Swiftcraft are crowded or clash.
 - **Trademark:** an IP India search for NOZ in classes 9 and 42 found only one abandoned NOZ (class 9). NOS (a sound-alike) still needs searching. Filing NOZ is under consideration.
 - **Product naming:** apps are "X by NOZ Studio" (short form "NOZ" only in tight spaces). Modules use plain descriptive names: Orders, Sales, Stock. The suite name is undecided.
-- **Colors:** primary terminal green `#4ADE80`, secondary near-black `#0A0D0C` (not pure black on screen), tertiary blue flame `#38BDF8`, text `#E6EEE9`. Never use green vs blue alone to mean different things, and keep blue rare.
-- **Logos:** `assets/logo.svg` is the personal KG monogram (also the favicon). `assets/noz.svg` is the NOZ boost flame.
+- **Colors (final, 30 Oct 2026):** primary terminal green `#4ADE80`, secondary near-black `#0A0D0C` (not pure black on screen), tertiary blue flame `#38BDF8`, text `#E6EEE9`. On white: deep green `#15803D`, deep blue `#0284C7`. Never use green vs blue alone to mean different things, and keep blue rare. Teal, mint, violet, orange, yellow and pink variants were tried and rejected: green reads as growth and blue as trust to business-owner clients.
+- **NOZ logo (final, 30 Oct 2026):** an open nozzle tilted up 25°, blue flame out of the open end, green fill up to a slanted line, and NOZ in JetBrains Mono ExtraBold Italic (thickened, converted to outlines) that turns into cut-outs over the fill. The "NOZ Studio" lockup adds small spaced STUDIO (JetBrains Mono Bold) under the nozzle. All versions are in `assets/brand/` (dark, light, one-colour black/white, icon without lettering, favicon); regenerate them with `python _tools/make_logos.py assets/brand`, never edit them by hand or retype NOZ in a font. Under 120 px wide use the icon.
+- **Personal logo:** `assets/logo.svg` is the KG monogram and stays the favicon of this personal page. The NOZ favicon is for nozstudio.com.
 - For any new name ideas, use the `brand-name-check` skill.
 
 ## Business positioning (drives the copy)
@@ -28,7 +29,7 @@ Personal page of Kumar Gaurav, with his managed web and app studio **NOZ Studio*
 ## Site structure
 
 - `_config.yml`: name, tagline, studio name/tagline/pitch, email/LinkedIn (empty = buttons hidden), nav.
-- `index.html`: personal hero with a "Now" card (#home), then the NOZ Studio feature (#noz: flame logo, live animated dashboard and phone mock, promise strip), then services, work (CSS-drawn thumbnails), process and pricing (all NOZ), then About me (#about), Projects (#projects: NOZ card plus a coming-soon card) and Contact.
+- `index.html`: personal hero with a "Now" card (#home), then the NOZ Studio feature (#noz: NOZ Studio lockup, live animated dashboard and phone mock, promise strip), then services, work (CSS-drawn thumbnails), process and pricing (all NOZ), then About me (#about), Projects (#projects: NOZ card plus a coming-soon card) and Contact.
 - `assets/css/style.css`: design tokens at the top, then sections. Motion styles and the newer sections are near the end.
 - `assets/js/main.js`: hero entrance, heading reveals (skipped for `.noz-title`, whose gradient text breaks when split), live dashboard ticker, cursor effects (desktop only), nav and tab-bar scroll-spy, phone carousels, Ctrl+K quick menu (its items list lives in this file).
 - `_layouts/default.html`: header, footer, quick menu markup, phone tab bar (Home, NOZ, Work, About, Contact).

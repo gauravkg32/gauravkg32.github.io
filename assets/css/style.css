@@ -368,9 +368,8 @@ kbd { font: 500 .7rem var(--mono); padding: .1rem .38rem; border-radius: 5px; bo
 /* ---------- NOZ Studio feature ---------- */
 .noz-intro { position: relative; border-top: 1px solid var(--border); overflow: hidden;
   background: radial-gradient(700px 380px at 85% 40%, rgba(var(--accent-2-rgb), .10), transparent 70%), radial-gradient(600px 400px at 10% 10%, rgba(var(--accent-rgb), .07), transparent 70%), var(--bg-alt); }
-.noz-brand { display: flex; align-items: center; gap: .8rem; margin-bottom: 1.25rem; font-size: 1.35rem; }
-.noz-brand img { border-radius: 12px; box-shadow: 0 0 40px -6px rgba(var(--accent-2-rgb), .45); }
-.noz-word { font-family: var(--mono); font-weight: 700; letter-spacing: .06em; color: var(--text); }
+.noz-brand { margin-bottom: 1rem; }
+.noz-brand img { display: block; width: 220px; max-width: 70%; height: auto; }
 .noz-title { font-size: clamp(2rem, 5vw, 3.4rem); margin-bottom: 1rem;
   background: linear-gradient(90deg, var(--text) 35%, var(--accent) 70%, var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
