@@ -1,0 +1,464 @@
+<title>NOZ Studio Brand Kit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,500;0,700;1,800&display=swap">
+<style>
+/* Layout: a spec sheet. One reading column; logo stages are fixed brand surfaces that look the same in both themes. */
+:root {
+  --bg: #0A0D0C; --surface: #101614; --raise: #151E1B; --line: #22302B;
+  --fg: #E6EEE9; --muted: #93A69D; --accent: #4ADE80; --on-accent: #0A0D0C;
+  --flame: #38BDF8; --draft: #FBBF24; --draft-bg: rgba(251,191,36,.08);
+  --stage-dark: #0A0D0C; --stage-light: #FFFFFF; --stage-photo: #2E5248; --stage-grey: #3A4642;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) {
+  --bg: #F5F7F6; --surface: #FFFFFF; --raise: #EDF2EF; --line: #D6E0DB;
+  --fg: #0E1512; --muted: #4D5D56; --accent: #15803D; --on-accent: #FFFFFF;
+  --flame: #0284C7; --draft: #B45309; --draft-bg: rgba(180,83,9,.07); color-scheme: light } }
+:root[data-theme="light"] {
+  --bg: #F5F7F6; --surface: #FFFFFF; --raise: #EDF2EF; --line: #D6E0DB;
+  --fg: #0E1512; --muted: #4D5D56; --accent: #15803D; --on-accent: #FFFFFF;
+  --flame: #0284C7; --draft: #B45309; --draft-bg: rgba(180,83,9,.07); color-scheme: light }
+
+* { box-sizing: border-box }
+[hidden] { display: none !important }
+body { background: var(--bg); color: var(--fg); font: 400 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased }
+.wrap { max-width: 1040px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+h1, h2, h3 { text-wrap: balance; margin: 0 }
+p { margin: 0 }
+.label { font: 500 12px/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted) }
+.mono { font-family: var(--mono) }
+a { color: var(--accent) }
+button { font: 500 13px/1 var(--mono); color: var(--fg); background: var(--raise); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; cursor: pointer }
+button:hover { border-color: var(--accent) }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+button.primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent) }
+
+/* Hero */
+.hero { padding-block: 56px 40px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 40px; align-items: center }
+.hero h1 { font: 700 clamp(34px, 5vw, 52px)/1.05 var(--sans); letter-spacing: -.02em; margin-top: 14px }
+.hero p.lead { color: var(--muted); margin-top: 16px; max-width: 46ch }
+.hero .stage { aspect-ratio: 530 / 310; border-radius: 14px; display: grid; place-items: center; padding: 6% 7%; max-width: 100% }
+.hero .stage img { width: 100% }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 22px }
+.meta span { font: 500 13px/1.4 var(--mono); color: var(--muted) }
+.meta b { color: var(--fg); font-weight: 500 }
+
+.draft { border: 1px dashed var(--draft); background: var(--draft-bg); border-radius: 10px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start }
+.draft .tag { font: 700 11px/1 var(--mono); letter-spacing: .1em; color: var(--draft); border: 1px solid var(--draft); border-radius: 4px; padding: 4px 6px; flex: none; margin-top: 2px }
+.draft p { font-size: 15px }
+
+section { padding-block: 56px 8px }
+.sec-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-top: 20px; margin-bottom: 28px }
+.sec-head h2 { font: 600 26px/1.2 var(--sans); letter-spacing: -.01em }
+.sec-head p { color: var(--muted); max-width: 60ch; flex-basis: 100% }
+
+/* The mark */
+.story { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px }
+.story div { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px }
+.story h3 { font: 700 15px/1.3 var(--mono); color: var(--accent); margin-bottom: 6px }
+.story p { color: var(--muted); font-size: 14px }
+
+/* Logo tiles */
+.tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 18px }
+.tools .note { color: var(--muted); font-size: 14px }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column }
+.tile .stage { aspect-ratio: 4 / 3; display: grid; place-items: center; padding: 10%; border-bottom: 1px solid var(--line) }
+.tile .stage img { width: 100%; max-height: 100% }
+.tile.square .stage img { width: 46% }
+.tile .info { padding: 12px 14px 14px; display: grid; gap: 4px; flex: 1 }
+.tile .name { font-weight: 600; font-size: 15px }
+.tile .use { color: var(--muted); font-size: 13.5px }
+.tile .file { font: 500 12px/1.4 var(--mono); color: var(--muted); overflow-wrap: anywhere }
+.tile .dl { display: flex; gap: 8px; margin-top: 8px }
+.st-dark { background: var(--stage-dark) }
+.st-light { background: var(--stage-light) }
+.st-photo { background: var(--stage-photo) repeating-linear-gradient(135deg, transparent 0 14px, rgba(255,255,255,.04) 14px 28px) }
+.st-none { background: var(--stage-grey) }
+
+/* Clear space and size */
+.rules { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 16px }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px }
+.panel h3 { font: 600 17px/1.3 var(--sans); margin-bottom: 8px }
+.panel p, .panel li { color: var(--muted); font-size: 14.5px }
+.clear { background: var(--stage-dark); border-radius: 10px; padding: 22px; margin-top: 14px }
+.clear .zone { border: 1px dashed #4ADE8066; padding: 15%; position: relative }
+.clear .zone::before { content: "x"; position: absolute; top: 4px; left: 8px; font: 500 12px var(--mono); color: #4ADE80aa }
+.clear .zone > div { outline: 1px solid #4ADE8040 }
+.clear img { width: 100%; display: block }
+.sizes { display: grid; gap: 14px; margin-top: 14px }
+.size-row { display: flex; align-items: center; gap: 14px; background: var(--stage-dark); border-radius: 8px; padding: 10px 14px }
+.size-row span { font: 500 12px var(--mono); color: #93A69D; margin-left: auto; text-align: right }
+ul.plain { margin: 8px 0 0; padding-left: 18px; display: grid; gap: 6px }
+
+/* Don'ts */
+.donts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px }
+.dont .stage { aspect-ratio: 4 / 3; border-radius: 10px; display: grid; place-items: center; padding: 12%; position: relative; overflow: hidden }
+.dont .stage img { width: 100% }
+.dont .stage::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top right, transparent calc(50% - 1.5px), #F87171 calc(50% - 1.5px), #F87171 calc(50% + 1.5px), transparent calc(50% + 1.5px)); opacity: .9 }
+.dont p { font-size: 14px; margin-top: 10px }
+.dont p b { display: block; font-weight: 600; margin-bottom: 2px }
+.dont p span { color: var(--muted) }
+.stretch img { transform: scaleX(1.45) scaleY(.75) }
+
+/* Colour */
+.swatches { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px }
+.swatch { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); display: flex; flex-direction: column }
+.swatch .chip { height: 112px; display: flex; align-items: flex-end; padding: 12px 14px; font: 700 13px/1 var(--mono) }
+.swatch .info { padding: 12px 14px 14px; display: grid; gap: 4px; flex: 1 }
+.swatch .name { font-weight: 600 }
+.swatch .role { color: var(--muted); font-size: 13.5px }
+.swatch .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 6px }
+.swatch .hex { font: 500 14px var(--mono) }
+.swatch .ratio { font: 500 12px/1.4 var(--mono); color: var(--muted) }
+.subhead { font: 600 15px/1.3 var(--sans); margin: 32px 0 14px }
+.swatches.small .chip { height: 72px }
+
+/* Type */
+.type { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px }
+.spec .big { font-size: 56px; line-height: 1; margin: 6px 0 14px; overflow-wrap: anywhere }
+.spec .sample { color: var(--fg) !important; font-size: 15px }
+.spec .weights { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 12px; font-size: 14px }
+.wordmark-note { margin-top: 16px }
+.wordmark-note .big { font: italic 800 44px/1 var(--mono); color: var(--accent) }
+
+/* Naming and voice */
+.pairs { display: grid; gap: 10px }
+.pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px }
+.pair div { border-radius: 10px; padding: 12px 14px; font-size: 14.5px; border: 1px solid var(--line); background: var(--surface) }
+.pair .no { color: var(--muted); background: transparent; border-style: dashed }
+.pair small { display: block; font: 500 11px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px }
+.pair .yes small { color: var(--accent) }
+.pair .no small { color: #F87171 }
+.names { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px }
+.names .panel .ex { font: 600 18px/1.3 var(--sans); color: var(--fg); margin: 6px 0 }
+.names .panel .ex em { font-style: normal; color: var(--accent) }
+
+/* Extra files, status colours, voice, messaging */
+.files { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 10px }
+.file { display: flex; align-items: center; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px }
+.file img { width: 44px; height: 44px; object-fit: contain; border-radius: 6px; background: var(--stage-dark); flex: none }
+.file .ft { flex: 1; min-width: 0; display: grid; gap: 2px }
+.file .ft b { font-size: 14px; font-weight: 600 }
+.file .ft span { font: 500 12px/1.4 var(--mono); color: var(--muted); overflow-wrap: anywhere }
+.note-line { color: var(--muted); font-size: 14.5px; margin-bottom: 12px; max-width: 70ch }
+.statuses { display: flex; flex-wrap: wrap; gap: 10px }
+.statuses span { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent); border: 1px solid color-mix(in srgb, var(--c) 40%, transparent) }
+.statuses code { font: 500 12px var(--mono); color: var(--muted) }
+.traits { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px }
+.traits div { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: grid; gap: 4px }
+.traits b { font: 700 14.5px/1.3 var(--mono); color: var(--accent) }
+.traits span { color: var(--muted); font-size: 13.5px }
+.tone-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px }
+.tone { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 560px }
+.tone th { text-align: left; font: 500 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--raise) }
+.tone td { padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top }
+.tone tr:last-child td { border-bottom: 0 }
+.tone td:first-child { font-weight: 600 }
+.tone td:last-child { color: var(--muted) }
+.pitches { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 16px }
+.pitch { color: var(--fg) !important; font-size: 16px !important; line-height: 1.6; margin-top: 8px }
+.msgs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px }
+.msgs div { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 4px }
+.msgs b { font-weight: 600 }
+.msgs span { color: var(--muted); font-size: 13.5px }
+@media (max-width: 860px) { .traits { grid-template-columns: repeat(2, minmax(0, 1fr)) } .pitches, .msgs { grid-template-columns: minmax(0, 1fr) } }
+@media (max-width: 520px) { .traits { grid-template-columns: minmax(0, 1fr) } }
+
+/* Open decisions */
+.open { display: grid; gap: 12px }
+.open .item { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px }
+.open .item .tag { font: 700 11px/1 var(--mono); letter-spacing: .1em; color: var(--draft); border: 1px solid var(--draft); border-radius: 4px; padding: 4px 6px; margin-top: 3px }
+.open .item h3 { font: 600 15.5px/1.35 var(--sans) }
+.open .item p { color: var(--muted); font-size: 14px; margin-top: 2px }
+.teal-compare { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap }
+.teal-compare span { display: inline-flex; align-items: center; gap: 8px; font: 500 12.5px var(--mono); color: var(--muted) }
+.teal-compare i { width: 18px; height: 18px; border-radius: 4px; display: inline-block }
+
+footer { margin-top: 64px; border-top: 1px solid var(--line); padding-block: 22px 40px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between }
+footer span { font: 500 12.5px var(--mono); color: var(--muted) }
+
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--fg); color: var(--bg); font: 500 13px var(--mono); padding: 10px 14px; border-radius: 8px; opacity: 0; transition: opacity .2s; pointer-events: none }
+.toast.on { opacity: 1 }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: minmax(0, 1fr); padding-block: 36px 28px; gap: 28px }
+  .tiles, .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+  .story, .donts { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+  .rules, .type, .names { grid-template-columns: minmax(0, 1fr) }
+}
+@media (max-width: 520px) {
+  .tiles, .swatches, .story, .donts, .pair { grid-template-columns: minmax(0, 1fr) }
+  .spec .big { font-size: 44px }
+}
+@media (prefers-reduced-motion: reduce) { .toast { transition: none } }
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <div class="label">NOZ Studio · Brand kit</div>
+      <h1>A boost for your business.</h1>
+      <p class="lead">The name, logo, colours, type and voice of NOZ Studio, and the files to use them. Use this page whenever you make anything with the NOZ name on it.</p>
+      <div class="meta">
+        <span>Version <b>1.1</b></span>
+        <span>Updated <b>31 Oct 2026</b></span>
+        <span>Owner <b>Kumar Gaurav</b></span>
+      </div>
+    </div>
+    <div class="stage st-dark"><img src="{{HERO}}" alt="NOZ logo: an open nozzle tilted up at 25 degrees, half filled with green, with NOZ in heavy italic letters and a blue flame from the nozzle."></div>
+  </header>
+
+  <section id="mark">
+    <div class="sec-head"><h2>The mark</h2><p>The logo is an open nozzle, tilted up as if taking off. Each part carries a piece of the story.</p></div>
+    <div class="story">
+      <div><h3>Nitrous</h3><p>NOZ comes from the nitrous boost in racing games. The brand promise is the same: a boost for your business.</p></div>
+      <div><h3>Nozzle</h3><p>The flame comes straight out of the open end, so the shape reads as thrust, not as a gas cylinder.</p></div>
+      <div><h3>Charge</h3><p>The green fill stops at a slanted line, like a charge meter. Where the letters cross the fill they turn into cut-outs.</p></div>
+      <div><h3>Lift-off</h3><p>The whole mark is tilted up 25°. Moving forward, and climbing.</p></div>
+    </div>
+  </section>
+
+  <section id="logos">
+    <div class="sec-head"><h2>Logo files</h2><p>Every version is a vector file (SVG) that stays sharp at any size. PNG copies are made on demand at 2048 px wide, or 1024 px for icons.</p></div>
+    <div class="tools">
+      <button class="primary" id="zip" hidden>Download all files (.zip)</button>
+      <span class="note" id="dl-note">Download buttons appear when this page is opened on claude.ai.</span>
+    </div>
+    <div class="tiles">{{TILES}}</div>
+    <h3 class="subhead">Print, app and social files</h3>
+    <div class="files">{{EXTRAS}}</div>
+  </section>
+
+  <section id="usage">
+    <div class="sec-head"><h2>Space and size</h2><p>Give the logo room, and keep it big enough that NOZ stays readable.</p></div>
+    <div class="rules">
+      <div class="panel">
+        <h3>Clear space</h3>
+        <p>Keep an empty margin around the logo at least as tall as the nozzle's body (marked x). No text, edges or other logos inside it.</p>
+        <div class="clear"><div class="zone"><div><img src="{{HERO}}" alt="The logo with its clear-space margin marked by a dashed line."></div></div></div>
+      </div>
+      <div class="panel">
+        <h3>Smallest sizes</h3>
+        <p>Below these sizes the lettering turns to mush. Switch to the icon instead.</p>
+        <div class="sizes">
+          <div class="size-row"><img src="{{HERO}}" alt="" style="width:120px"><span>Full logo<br>120 px / 35 mm</span></div>
+          <div class="size-row"><img src="{{ICON}}" alt="" style="width:48px"><span>Icon<br>24 px / 10 mm</span></div>
+        </div>
+        <ul class="plain">
+          <li>Under 120 px wide: use the icon.</li>
+          <li>Favicons, app icons and profile pictures: always the icon.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="donts">
+    <div class="sec-head"><h2>Don't</h2><p>The logo only works as drawn. These are the mistakes that come up most.</p></div>
+    <div class="donts">{{DONTS}}</div>
+  </section>
+
+  <section id="colour">
+    <div class="sec-head"><h2>Colour</h2><p>Mostly near-black and green. Blue is only for the flame and small highlights; if it shows up everywhere it stops meaning anything. Never use green against blue on its own to tell two things apart.</p></div>
+    <div class="swatches">{{SWATCHES}}</div>
+    <h3 class="subhead">On white and light backgrounds</h3>
+    <div class="swatches small">{{SWATCHES_LIGHT}}</div>
+    <h3 class="subhead">Status colours, for apps</h3>
+    <p class="note-line">Brand green is the brand, not "success". In apps, status uses these, always with an icon and a word, never colour alone.</p>
+    <div class="statuses">
+      <span style="--c:#22C55E">✓ Delivered <code>#22C55E</code></span>
+      <span style="--c:#FBBF24">● Packed <code>#FBBF24</code></span>
+      <span style="--c:#F87171">✕ Out of stock <code>#F87171</code></span>
+      <span style="--c:#38BDF8">i Note <code>#38BDF8</code></span>
+    </div>
+  </section>
+
+  <section id="type">
+    <div class="sec-head"><h2>Type</h2><p>Two free fonts from Google Fonts, already used on the website.</p></div>
+    <div class="type">
+      <div class="panel spec">
+        <div class="label">Body and headings</div>
+        <div class="big" style="font-family:var(--sans);font-weight:700">Inter</div>
+        <p class="sample">We build it, run it and keep it improving, so you can focus on your business.</p>
+        <div class="weights"><span style="font-weight:400">Regular 400</span><span style="font-weight:600">Semibold 600</span><span style="font-weight:700">Bold 700</span></div>
+      </div>
+      <div class="panel spec">
+        <div class="label">Labels, numbers, the wordmark</div>
+        <div class="big mono" style="font-weight:700">JetBrains Mono</div>
+        <p class="sample mono">Orders 1,284 · Stock 92% · Backup 02:00</p>
+        <div class="weights mono"><span style="font-weight:500">Medium 500</span><span style="font-weight:700">Bold 700</span><span style="font-weight:800;font-style:italic">ExtraBold Italic 800</span></div>
+      </div>
+    </div>
+    <div class="panel wordmark-note">
+      <h3>The NOZ lettering</h3>
+      <p>The letters in the logo are JetBrains Mono ExtraBold Italic, thickened and turned into shapes. Use the logo files. Never retype NOZ in a font to make a logo.</p>
+      <div class="big" style="margin-top:12px">NOZ</div>
+    </div>
+  </section>
+
+  <section id="naming">
+    <div class="sec-head"><h2>Names</h2><p>One company name, and plain names for everything inside it.</p></div>
+    <div class="names">
+      <div class="panel"><div class="label">Company</div><p class="ex">NOZ Studio</p><p>Always in full the first time. "NOZ" on its own only in tight spaces, such as the logo and app icons. NOZ is always in capitals.</p></div>
+      <div class="panel"><div class="label">Products</div><p class="ex">Orders <em>by NOZ Studio</em></p><p>Each app is named for what it does, followed by "by NOZ Studio". The suite name is still open.</p></div>
+      <div class="panel"><div class="label">Modules</div><p class="ex">Orders · Sales · Stock</p><p>Plain, descriptive words a shop owner already uses. No invented names for modules.</p></div>
+    </div>
+    <div class="pairs" style="margin-top:16px">
+      <div class="pair"><div class="yes"><small>Write</small>NOZ Studio · NOZ</div><div class="no"><small>Not</small>Noz Studio · NO2 · N.O.Z.</div></div>
+    </div>
+  </section>
+
+  <section id="voice">
+    <div class="sec-head"><h2>Voice</h2><p>Talk like a capable friend who builds software: plain words, short sentences, and only promises the product keeps.</p></div>
+    <div class="traits">
+      <div><b>Plain-spoken</b><span>Words a shop owner already uses</span></div>
+      <div><b>Dependable</b><span>Promise only what we deliver</span></div>
+      <div><b>Practical</b><span>Lead with what the client gets</span></div>
+      <div><b>Friendly</b><span>Warm and direct, never stiff</span></div>
+      <div><b>Quietly confident</b><span>Calm, no hype</span></div>
+    </div>
+    <h3 class="subhead">Tone by place</h3>
+    <div class="tone-wrap"><table class="tone">
+      <thead><tr><th>Where</th><th>Tone</th><th>Sounds like</th></tr></thead>
+      <tbody>
+        <tr><td>Website</td><td>Clear, benefit first</td><td>"A boost for your business."</td></tr>
+        <tr><td>WhatsApp, first reply</td><td>Warm, short, ask a question back</td><td>"Happy to help. How do you take orders today?"</td></tr>
+        <tr><td>Proposal or quote</td><td>Precise and scoped</td><td>"Setup covers data import and training for 5 users."</td></tr>
+        <tr><td>Something went wrong</td><td>Own it, say what's next</td><td>"Sync failed at 2 pm. Fixed, and nothing was lost."</td></tr>
+        <tr><td>Social posts</td><td>Real work, one idea per post</td><td>"Reps book orders with no signal. Here's how."</td></tr>
+      </tbody>
+    </table></div>
+    <h3 class="subhead">Words</h3>
+    <div class="pairs">
+      <div class="pair"><div class="yes"><small>Say what clients get</small>Websites, mobile apps and business software.</div><div class="no"><small>Not how it's built</small>Websites turned into apps. Web → App.</div></div>
+      <div class="pair"><div class="yes"><small>Promise what the product keeps</small>Works offline. Daily backups. Your data, always exportable.</div><div class="no"><small>Not vague claims</small>Enterprise-grade, cutting-edge, seamless.</div></div>
+      <div class="pair"><div class="yes"><small>Describe work generically</small>An order-booking app for a distributor's field team.</div><div class="no"><small>Never name a client</small>The app we built for [client name].</div></div>
+      <div class="pair"><div class="yes"><small>The offer</small>We build it, run it and keep it improving. Hosting and support included.</div><div class="no"><small>Not ownership talk</small>You own the code. One-time project, then you're on your own.</div></div>
+    </div>
+  </section>
+
+  <section id="messaging">
+    <div class="sec-head"><h2>What we say</h2><p>The core story, ready to say out loud or paste into a message.</p></div>
+    <div class="pitches">
+      <div class="panel"><div class="label">10 seconds</div><p class="pitch">NOZ Studio builds and runs business software, like order booking, sales tracking and stock, so growing businesses can get off spreadsheets and WhatsApp.</p></div>
+      <div class="panel"><div class="label">30 seconds</div><p class="pitch">Most growing businesses run on paper, Excel and WhatsApp groups, and things slip. NOZ Studio sets up software for your orders, sales and stock, tailored to how you work, and then we run it: hosting, daily backups, updates and support for one monthly fee. Your team gets an app that works even with no signal, and your data is always yours to export.</p></div>
+    </div>
+    <div class="panel" style="margin-top:16px">
+      <div class="label">Positioning</div>
+      <p class="pitch">NOZ Studio is the managed software studio for growing businesses that run on spreadsheets, paper and WhatsApp, who want their orders, sales and stock in one place without hiring an IT team, because we build the software, host it, back it up and keep improving it for one monthly fee.</p>
+    </div>
+    <h3 class="subhead">Key messages</h3>
+    <div class="msgs">
+      <div><b>Your orders, sales and stock in one app</b><span>Proof: order, sales and inventory products already built</span></div>
+      <div><b>Works where your team works</b><span>Proof: offline field-sales app with GPS- and photo-verified visits</span></div>
+      <div><b>We run it, you run your business</b><span>Proof: hosting, daily backups, updates and support included</span></div>
+      <div><b>Your data is yours</b><span>Proof: export anytime</span></div>
+    </div>
+  </section>
+
+  <section id="imagery">
+    <div class="sec-head"><h2>Imagery</h2><p>Show the product, not stock photos.</p></div>
+    <div class="names">
+      <div class="panel"><div class="label">Pictures</div><p>Real screens of real products on near-black. No stock photos of handshakes or people at laptops, and no AI-generated people.</p></div>
+      <div class="panel"><div class="label">Illustration</div><p>Simple drawn mock-ups of dashboards, phones and maps. Thin "boost" lines at the logo's 25° are the one decorative motif.</p></div>
+      <div class="panel"><div class="label">Icons</div><p>Line icons on a 24 px grid, 1.8 px stroke, round ends. Green on a faint green tile, or in the text colour.</p></div>
+    </div>
+  </section>
+
+  <section id="open">
+    <div class="sec-head"><h2>Still to do</h2><p>The logo and colours are decided. These are what's left.</p></div>
+    <div class="open">
+      <div class="item"><span class="tag">OPEN</span><div><h3>Suite name</h3><p>The name for the set of business apps (Orders, Sales, Stock).</p></div></div>
+      <div class="item"><span class="tag">TODO</span><div><h3>NOS trademark search</h3><p>Search IP India for NOS, the sound-alike, in classes 9 and 42 before printing anything. The NOZ search was clean apart from one abandoned mark.</p></div></div>
+      <div class="item"><span class="tag">TODO</span><div><h3>Stationery and social</h3><p>Email signature, quote and invoice template, business card, social cover banners and handles. The profile picture is done (see Print, app and social files).</p></div></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>NOZ Studio · India</span>
+    <span>nozstudio.com</span>
+    <span>Brand kit 1.1</span>
+  </footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="application/json" id="assets">{{ASSETS_JSON}}</script>
+<script type="application/json" id="binfiles">{{BIN_JSON}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+(function () {
+  const assets = JSON.parse(document.getElementById('assets').textContent);
+  const toast = document.getElementById('toast');
+  let t;
+  function say(msg) { toast.textContent = msg; toast.classList.add('on'); clearTimeout(t); t = setTimeout(() => toast.classList.remove('on'), 2200); }
+
+  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => {
+    const v = b.dataset.copy;
+    navigator.clipboard.writeText(v).then(() => say('Copied ' + v), () => {
+      const r = document.createRange(); r.selectNodeContents(b.previousElementSibling);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r); say('Selected ' + v + ', press Ctrl+C');
+    });
+  }));
+
+  function toPng(svg, width) {
+    return new Promise((res, rej) => {
+      const img = new Image();
+      img.onload = () => {
+        const h = Math.round(width * img.naturalHeight / img.naturalWidth);
+        const c = document.createElement('canvas'); c.width = width; c.height = h;
+        c.getContext('2d').drawImage(img, 0, 0, width, h);
+        c.toBlob(b => b ? res(b) : rej(new Error('png')), 'image/png');
+      };
+      img.onerror = rej;
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    });
+  }
+
+  function failed(e) {
+    const code = e && e.code;
+    if (code === 'declined') return;
+    say(code === 'rate_limited' ? 'One download at a time, try again in a moment' : 'That download did not work here');
+  }
+
+  const use = window.claude && window.claude.use;
+  if (!use) return;
+  window.claude.use('downloads').then(dl => {
+    const note = document.getElementById('dl-note');
+    if (!dl) { note.textContent = "Downloads aren't available in this view."; return; }
+    note.hidden = true;
+    document.querySelectorAll('.tile .dl').forEach(row => {
+      row.hidden = false;
+      const file = row.dataset.file, a = assets[file];
+      row.querySelector('[data-kind="svg"]').addEventListener('click', () =>
+        dl.save({ filename: file, data: a.svg }).then(() => say('Saved ' + file), failed));
+      row.querySelector('[data-kind="png"]').addEventListener('click', () => {
+        const name = file.replace(/\.svg$/, '.png');
+        toPng(a.svg, a.square ? 1024 : 2048).then(b => dl.save({ filename: name, data: b })).then(() => say('Saved ' + name), failed);
+      });
+    });
+    const bin = JSON.parse(document.getElementById('binfiles').textContent);
+    const bytes = b64 => Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+    document.querySelectorAll('.file [data-bin]').forEach(b => {
+      b.hidden = false;
+      b.addEventListener('click', () => {
+        const f = b.dataset.bin;
+        dl.save({ filename: f, data: bytes(bin[f]) }).then(() => say('Saved ' + f), failed);
+      });
+    });
+    const zipBtn = document.getElementById('zip');
+    if (window.JSZip) {
+      zipBtn.hidden = false;
+      zipBtn.addEventListener('click', () => {
+        const z = new JSZip(); const f = z.folder('noz-studio-logos');
+        Object.keys(assets).forEach(k => f.file(k, assets[k].svg));
+        Object.keys(bin).forEach(k => f.file(k, bin[k], { base64: true }));
+        z.generateAsync({ type: 'blob' }).then(b => dl.save({ filename: 'noz-studio-logos.zip', data: b })).then(() => say('Saved noz-studio-logos.zip'), failed);
+      });
+    }
+  });
+})();
+</script>
