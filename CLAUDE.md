@@ -7,7 +7,7 @@ Personal page of Kumar Gaurav, with his managed web and app studio **NOZ Studio*
 ## Brand decisions
 
 - **Brand: NOZ** (from nitrous, the racing-game boost; never write "NO2"). The company name is shown as **NOZ Studio**. "Studio" is a descriptor, not part of product names.
-- **Owned:** domain `nozstudio.com` (GoDaddy) and GitHub account `nozstudio`. Keep the account's login email off the site. A domain email (e.g. hello@nozstudio.com, forwarded) is planned as the public contact address.
+- **Owned:** domain `nozstudio.com` (GoDaddy), GitHub account `nozstudio`, and a dedicated NOZ Studio Gmail account used as that GitHub login (address deliberately not written here; ask Kumar if it's needed). Keep that Gmail off the site. A domain email (e.g. hello@nozstudio.com, forwarded) is planned as the public contact address.
 - **Two sites (tentative):** NOZ Studio will later get its own site under the `nozstudio` account at nozstudio.com. When that happens, the #noz section moves there almost unchanged and this page keeps a short NOZ Studio card. This repo stays Kumar Gaurav's personal page and shifts toward his own projects over time.
 - **Dropped names:** Edgecraft Studio, the old placeholder (edgecraftstudio.com is a live same-name US software studio). Techweaver, Technoz, Pitstop and Swiftcraft are crowded or clash.
 - **Trademark:** an IP India search for NOZ in classes 9 and 42 found only one abandoned NOZ (class 9). NOS (a sound-alike) still needs searching. Filing NOZ is under consideration.
