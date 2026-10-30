@@ -19,4 +19,10 @@ nav:
 markdown: kramdown
 permalink: /blog/:year/:month/:title/
 plugins: [jekyll-feed, jekyll-seo-tag]
-exclude: [README.md, CLAUDE.md, Gemfile, Gemfile.lock]
+exclude: [README.md, CLAUDE.md, Gemfile, Gemfile.lock, docs]
+# Link previews (WhatsApp, LinkedIn, X): regenerate with python _tools/export_brand.py assets/brand
+twitter:
+  card: summary_large_image
+defaults:
+  - scope: { path: "" }
+    values: { image: /assets/brand/og-image.png }

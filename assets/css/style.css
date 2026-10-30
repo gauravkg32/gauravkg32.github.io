@@ -369,7 +369,69 @@ kbd { font: 500 .7rem var(--mono); padding: .1rem .38rem; border-radius: 5px; bo
 .noz-intro { position: relative; border-top: 1px solid var(--border); overflow: hidden;
   background: radial-gradient(700px 380px at 85% 40%, rgba(var(--accent-2-rgb), .10), transparent 70%), radial-gradient(600px 400px at 10% 10%, rgba(var(--accent-rgb), .07), transparent 70%), var(--bg-alt); }
 .noz-brand { margin-bottom: 1rem; }
-.noz-brand img { display: block; width: 220px; max-width: 70%; height: auto; }
+.noz-logo { display: block; width: 240px; max-width: 72%; height: auto; overflow: visible; }
+
+/* Logo: the nozzle charges up, then the flame lights and keeps flickering; hover gives it a boost */
+.nz-charge { transform-box: fill-box; transform-origin: right center; transition: transform 1.3s cubic-bezier(.2, .7, .2, 1) .3s; }
+.nz-flame { transform-box: fill-box; transform-origin: right center; transition: opacity .35s ease 1.45s; animation: flicker 1.8s ease-in-out infinite; }
+.js .reveal:not(.in) .nz-charge { transform: scaleX(0); }
+.js .reveal:not(.in) .nz-flame { opacity: 0; }
+.noz-brand:hover .nz-flame { animation: boost .3s ease-in-out infinite; }
+@keyframes flicker { 0%, 100% { transform: scale(1, 1); } 35% { transform: scale(1.07, .96); } 65% { transform: scale(.96, 1.03); } }
+@keyframes boost { 0%, 100% { transform: scale(1.35, 1.04); } 50% { transform: scale(1.5, .94); } }
+
+/* ---------- Hero motion ---------- */
+.hero-name .w { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .08em; margin-bottom: -.08em; }
+.hero-name .wi { display: inline-block; }
+.js .hero-name .wi { transform: translateY(110%); }
+.js.ready .hero-name .wi { transform: none; transition: transform 1s cubic-bezier(.2, .7, .2, 1); transition-delay: calc(100ms + var(--i) * 120ms); }
+.caret { display: inline-block; width: .42em; height: .78em; margin-left: .1em; border-radius: 3px; background: var(--accent); animation: blink 1.1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Boost streaks: thin lines drifting up at the logo's 25° angle */
+.streaks { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+  mask-image: linear-gradient(to bottom, #000 55%, transparent); -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent); }
+.streaks i { position: absolute; left: -35%; width: 30%; height: 1px; opacity: 0;
+  background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), .5), transparent); animation: streak 9s linear infinite; }
+.streaks i:nth-child(1) { top: 70%; animation-delay: 0s; }
+.streaks i:nth-child(2) { top: 95%; animation-delay: 1.6s; animation-duration: 11s; }
+.streaks i:nth-child(3) { top: 55%; animation-delay: 3.4s; background: linear-gradient(90deg, transparent, rgba(var(--accent-2-rgb), .55), transparent); }
+.streaks i:nth-child(4) { top: 110%; animation-delay: 4.8s; animation-duration: 10s; }
+.streaks i:nth-child(5) { top: 85%; animation-delay: 6.3s; }
+.streaks i:nth-child(6) { top: 120%; animation-delay: 7.7s; animation-duration: 12s; }
+@keyframes streak {
+  0% { transform: translate(0, 0) rotate(-25deg); opacity: 0; }
+  12%, 70% { opacity: 1; }
+  100% { transform: translate(150vw, -70vw) rotate(-25deg); opacity: 0; }
+}
+
+/* Capabilities strip */
+.marquee { overflow: hidden; border-top: 1px solid var(--border); background: var(--bg); padding: .95rem 0;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.marquee-track { display: flex; width: max-content; animation: marquee 40s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee li { font: 500 .85rem var(--mono); color: var(--muted); white-space: nowrap; padding-right: 1.5rem; }
+.marquee li::before { content: "/"; color: var(--accent); margin-right: 1.5rem; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* Process: the line above each step fills in, one after another */
+.steps li { position: relative; }
+.steps li:first-child { border-top-color: var(--border); }
+.steps li::before { content: ""; position: absolute; left: 0; right: 0; top: -2px; height: 2px; background: var(--accent); transform-origin: left; transition: transform .9s cubic-bezier(.2, .7, .2, 1); }
+.js .steps li:not(.in)::before { transform: scaleX(0); }
+.steps li:nth-child(2)::before { transition-delay: .25s; }
+.steps li:nth-child(3)::before { transition-delay: .5s; }
+.steps li:nth-child(4)::before { transition-delay: .75s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nz-flame, .noz-brand:hover .nz-flame, .caret { animation: none; }
+  .js .reveal:not(.in) .nz-charge, .js .reveal:not(.in) .nz-flame { transform: none; opacity: 1; }
+  .js .hero-name .wi { transform: none; }
+  .streaks { display: none; }
+  .marquee-track { animation: none; width: auto; flex-wrap: wrap; justify-content: center; row-gap: .4rem; }
+  .marquee li[aria-hidden="true"] { display: none; }
+  .js .steps li:not(.in)::before { transform: none; }
+}
 .noz-title { font-size: clamp(2rem, 5vw, 3.4rem); margin-bottom: 1rem;
   background: linear-gradient(90deg, var(--text) 35%, var(--accent) 70%, var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 

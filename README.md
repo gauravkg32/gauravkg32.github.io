@@ -10,4 +10,5 @@ Right now the page is mostly about NOZ Studio. Other projects get added to the P
 | Hero, NOZ Studio section, about, projects, contact | `index.html` |
 | Colors / fonts | `assets/css/style.css` (tokens at the top) |
 | Personal logo / favicon | `assets/logo.svg` |
-| NOZ Studio logo | `assets/brand/` (regenerate with `python _tools/make_logos.py assets/brand`) |
+| NOZ Studio logo | `assets/brand/` (regenerate with `python _tools/make_logos.py assets/brand`, then `python _tools/export_brand.py assets/brand` for PNG/PDF) |
+| Brand rules (colours, voice, messaging) | `docs/brand-guidelines.md` |
