@@ -1,4 +1,4 @@
-# NOZ Studio Brand Guidelines v1.2
+# NOZ Studio Brand Guidelines v1.3
 
 > Last updated: 31 Oct 2026
 > Status: Final (logo and colours decided 30 Oct 2026)
@@ -62,6 +62,14 @@ Brand green is the brand, not "success". Status colours always come with an icon
 | Warning | #FBBF24 | Pending, packed, low stock |
 | Error | #F87171 | Failed, out of stock, destructive actions |
 | Info | #38BDF8 | Neutral notices (rare) |
+
+### In the Apps
+
+Success green is close to brand green, so keep the two from meeting on screen. A success message stands out by its shape, icon and place, not its colour.
+
+- Use brand green sparingly in app screens: the main action button and the logo only. Not for borders, highlighted text or decoration.
+- Show success as a toast or banner with a ✓ icon and a short message ("✓ Order saved"), in the same place every time, on a dark surface. Never as plain green text on the page.
+- Errors and warnings may interrupt (inline next to the field, or a banner that stays until dismissed); success disappears on its own after a few seconds.
 
 ### Accessibility
 
@@ -253,6 +261,7 @@ For business owners who lose time and money to scattered orders and stock, NOZ S
 | Type | Style |
 |------|-------|
 | Primary | Terminal Green fill, #04140A text, 10 px radius, 600 weight |
+| Primary (apps) | Same as above; one per screen, so green keeps meaning "the main action" |
 | Ghost | Transparent, Border outline, Mist text |
 
 ### Spacing Scale
@@ -323,6 +332,7 @@ Owner dashboard with order bars and a low-stock alert, terminal green on near-bl
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 1.3 | 31 Oct 2026 | In the apps: brand green only for the main button and logo; success shown as a toast with ✓ and words |
 | 1.2 | 31 Oct 2026 | Size tiers: lockup from 130 px, NOZ from 40 px, no lettering only below 40 px; avatar and iPhone icon now show NOZ |
 | 1.1 | 31 Oct 2026 | Messaging, voice traits, tone by context, semantic colours, imagery, larger clear space, PNG/PDF exports |
 | 1.0 | 30 Oct 2026 | Final logo (25° open nozzle) and colours (green + sky) |
