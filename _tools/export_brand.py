@@ -2,7 +2,7 @@
 
 Usage: python _tools/export_brand.py assets/brand
 Needs Google Chrome installed. Writes next to the SVGs:
-  noz-favicon-32.png, noz-apple-touch-icon.png (180), noz-avatar-400.png  (icons, square)
+  noz-favicon-32.png, noz-apple-touch-icon.png (180), noz-avatar-400.png  (icons, square, the mark on near-black)
   noz-logo-light.pdf, noz-studio-lockup-light.pdf, noz-logo-black.pdf      (print, vector)
   og-image.png (1200x630 link preview for this site)
 """
@@ -45,14 +45,18 @@ def png(name, src_svg, w, h, scale=1.0, bg="transparent"):
     chrome(f"--screenshot={os.path.join(OUT, name)}", f"--window-size={w},{h}", url)
 
 
-def pdf(name, src_svg):
-    url = page(name, svg(src_svg), "@page{size:530px 310px;margin:0}svg{display:block;width:530px;height:310px}")
+def pdf(name, src_svg, w=600):
+    """Vector PDF, 600 px wide, page sized to the logo's own proportions."""
+    import re
+    vb = [float(v) for v in re.search(r'viewBox="([^"]+)"', svg(src_svg)).group(1).split()]
+    h = round(w * vb[3] / vb[2])
+    url = page(name, svg(src_svg), f"@page{{size:{w}px {h}px;margin:0}}svg{{display:block;width:{w}px;height:{h}px}}")
     chrome(f"--print-to-pdf={os.path.join(OUT, name)}", "--no-pdf-header-footer", url)
 
 
 png("noz-favicon-32.png", "noz-favicon.svg", 32, 32)
-png("noz-apple-touch-icon.png", "noz-logo.svg", 180, 180, scale=.9, bg="#0A0D0C")  # iOS rounds the corners itself
-png("noz-avatar-400.png", "noz-logo.svg", 400, 400, scale=.8, bg="#0A0D0C")  # safe inside a circle crop; shown at 40-170 px, so NOZ but no STUDIO
+png("noz-apple-touch-icon.png", "noz-logo.svg", 180, 180, scale=.82, bg="#0A0D0C")  # iOS rounds the corners itself
+png("noz-avatar-400.png", "noz-logo.svg", 400, 400, scale=.66, bg="#0A0D0C")  # the whole mark stays inside a circle crop
 for n in ["noz-logo-light", "noz-studio-lockup-light", "noz-logo-black"]:
     pdf(n + ".pdf", n + ".svg")
 

@@ -1,7 +1,7 @@
-# NOZ Studio Brand Guidelines v1.3
+# NOZ Studio Brand Guidelines v2.0
 
-> Last updated: 31 Oct 2026
-> Status: Final (logo and colours decided 30 Oct 2026)
+> Last updated: 1 Nov 2026
+> Status: Final (colours decided 30 Oct 2026; logo replaced 1 Nov 2026)
 
 The source of truth for the NOZ Studio brand. The `brand` and `design` skills read this file; the brand kit page and `assets/brand/` follow it. NOZ comes from nitrous, the boost in racing games: **a boost for your business**.
 
@@ -91,7 +91,7 @@ Success green is close to brand green, so keep the two from meeting on screen. A
 --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 ```
 
-JetBrains Mono is for labels, numbers and code-like details. The NOZ lettering in the logo is JetBrains Mono ExtraBold Italic converted to shapes: use the logo files, never retype it.
+JetBrains Mono is for labels, numbers and code-like details. The NOZ lettering in the lockup is JetBrains Mono ExtraBold Italic converted to shapes: use the lockup files, never retype it.
 
 ### Type Scale
 
@@ -113,36 +113,34 @@ Google Fonts: Inter 400/500/600/700 and JetBrains Mono 500/700 with `display=swa
 
 ## 3. Logo Usage
 
-An open nozzle tilted up 25°, a blue flame out of the open end, green fill up to a slanted line, and NOZ in heavy italic letters that become cut-outs over the fill.
+A green boost arrow with a jet nozzle of three ribs coming out of its back, and a blue flame coming out of the nozzle, all tilted up 25°. The arrow is the boost, the nozzle is where the name comes from, and the flame is the same one the first logo had. The mark is the logo: it is never cut down, and the name is set beside it, not inside it.
 
 ### Variants
 
 | File (assets/brand/) | Use |
 |------|-----|
-| noz-logo.svg | Main logo, dark backgrounds |
-| noz-logo-light.svg / .pdf | White and pale backgrounds, print |
-| noz-studio-lockup.svg / -light.svg / -light.pdf | Where the full name "NOZ Studio" matters |
+| noz-logo.svg | The mark, dark backgrounds |
+| noz-logo-light.svg / .pdf | The mark on white and pale backgrounds, print |
+| noz-studio-lockup.svg / -light.svg / -light.pdf | The mark with NOZ and STUDIO beside it, wherever there is room |
 | noz-logo-black.svg / .pdf, noz-logo-white.svg | One colour: stamps, engraving, photos |
-| noz-icon.svg / noz-icon-light.svg | No lettering: below 40 px only (browser tabs, tiny UI) |
-| noz-favicon.svg / noz-favicon-32.png | Browser tabs |
+| noz-favicon.svg / noz-favicon-32.png | Favicon and app icon: the mark on a near-black rounded square |
 | noz-apple-touch-icon.png | iPhone home screen (180 px) |
-| noz-avatar-400.png | Social profile pictures: logo with NOZ, safe for a circle crop |
+| noz-avatar-400.png | Social profile pictures, safe for a circle crop |
 
 Regenerate everything with `python _tools/make_logos.py assets/brand` then `python _tools/export_brand.py assets/brand`. Never edit the files by hand.
 
 ### Clear Space
 
-Keep empty space around the logo at least as tall as the nozzle's body. No text, edges or other logos inside it.
+Keep empty space around the logo at least as wide as the arrow's arm. No text, edges or other logos inside it.
 
 ### Minimum Size
 
-Pick the version by how big the logo will appear. The lettering needs room; STUDIO is much smaller than NOZ.
+The mark works at every size down to a 16 px browser tab; below about 32 px the ribs merge into one shape, which is fine. The lockup needs room for STUDIO.
 
 | Version | Use from | Print |
 |---------|----------|-------|
-| NOZ Studio lockup (with STUDIO) | 130 px wide; 160 px in a round avatar | 35 mm wide |
-| Logo with NOZ | 40 px wide or tall | 10 mm |
-| No lettering | Below 40 px only (browser tabs) | Not for print |
+| NOZ Studio lockup | 130 px wide | 35 mm wide |
+| The mark on its own | 16 px | 6 mm |
 
 ### Don'ts
 
@@ -150,7 +148,8 @@ Pick the version by how big the logo will appear. The lettering needs room; STUD
 - Don't recolour any part; the flame is always blue
 - Don't use the dark-background logo on white; use the light version
 - Don't stretch, squash, crop, or add shadows, glows or outlines
-- Don't retype NOZ in a font or rearrange the parts
+- Don't rearrange the parts, drop the nozzle or the flame, or put NOZ inside the mark
+- Don't retype NOZ or STUDIO in a font; use the lockup files
 
 ---
 
@@ -332,6 +331,7 @@ Owner dashboard with order bars and a low-stock alert, terminal green on near-bl
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.0 | 1 Nov 2026 | New logo: boost arrow, three-rib jet nozzle and the first logo's flame, tilted 25°; the lettered nozzle and the no-lettering icon are retired; the mark is used at every size |
 | 1.3 | 31 Oct 2026 | In the apps: brand green only for the main button and logo; success shown as a toast with ✓ and words |
 | 1.2 | 31 Oct 2026 | Size tiers: lockup from 130 px, NOZ from 40 px, no lettering only below 40 px; avatar and iPhone icon now show NOZ |
 | 1.1 | 31 Oct 2026 | Messaging, voice traits, tone by context, semantic colours, imagery, larger clear space, PNG/PDF exports |

@@ -57,7 +57,7 @@ sw_light = "".join(swatch(*a) for a in [
     ("White", "#FFFFFF", "Light backgrounds and documents.", "Base for light ratios", "#0A0D0C"),
 ])
 
-assets = {k: {"svg": v["svg"], "square": k == "noz-favicon.svg" or "icon" in k} for k, v in files.items()}
+assets = {k: {"svg": v["svg"], "square": k == "noz-favicon.svg"} for k, v in files.items()}
 
 # Exported PNG/PDF files (made by the site's _tools/export_brand.py), offered as downloads
 import os
@@ -80,7 +80,7 @@ for name, label, note in extra_files:
     extra_html.append(f'<div class="file"><img src="{thumb}" alt=""{bg}><div class="ft"><b>{label}</b><span>{name} · {note}</span></div>'
                       f'<button data-bin="{name}" hidden>Download</button></div>')
 out = (tpl.replace("{{HERO}}", uri(files["noz-logo.svg"]["svg"]))
-          .replace("{{ICON}}", uri(files["noz-icon.svg"]["svg"]))
+          .replace("{{ICON}}", uri(files["noz-favicon.svg"]["svg"]))
           .replace("{{LOCKUP}}", uri(files["noz-studio-lockup.svg"]["svg"]))
           .replace("{{TILES}}", "".join(tiles))
           .replace("{{DONTS}}", dont_html)
