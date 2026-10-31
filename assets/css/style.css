@@ -369,13 +369,20 @@ kbd { font: 500 .7rem var(--mono); padding: .1rem .38rem; border-radius: 5px; bo
 .noz-intro { position: relative; border-top: 1px solid var(--border); overflow: hidden;
   background: radial-gradient(700px 380px at 85% 40%, rgba(var(--accent-2-rgb), .10), transparent 70%), radial-gradient(600px 400px at 10% 10%, rgba(var(--accent-rgb), .07), transparent 70%), var(--bg-alt); }
 .noz-brand { margin-bottom: 1rem; }
-.noz-logo { display: block; width: 300px; max-width: 80%; height: auto; overflow: visible; }
+.noz-logo { display: block; width: 340px; max-width: 88%; height: auto; overflow: visible; }
 
-/* Logo: the nozzle's ribs slide in one by one, then the flame lights and keeps flickering; hover gives it a boost */
+/* Logo: the nozzle's ribs slide in one by one, the flame lights and keeps flickering, then the first logo's
+   green block sweeps in behind the name with the letters cut out and fades away; hover gives the flame a boost */
 .nz-rib { transform-box: fill-box; transform-origin: right center; transition: transform .6s cubic-bezier(.2, .7, .2, 1) var(--d), opacity .3s ease var(--d); }
 .nz-flame { transform-box: fill-box; transform-origin: right center; transition: opacity .35s ease 1.05s; animation: flicker 1.8s ease-in-out infinite; }
 .js .reveal:not(.in) .nz-rib { transform: scaleX(0); opacity: 0; }
 .js .reveal:not(.in) .nz-flame { opacity: 0; }
+.nz-block { opacity: 0; }
+.nz-sweep { transform-box: fill-box; transform-origin: left center; }
+.js .reveal.in .nz-block { animation: block-flash 1.65s ease 1.35s both; }
+.js .reveal.in .nz-sweep { animation: sweep .55s cubic-bezier(.6, 0, .2, 1) 1.35s both; }
+@keyframes block-flash { 0%, 64% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes sweep { from { transform: scaleX(0); } to { transform: none; } }
 .noz-brand:hover .nz-flame { animation: boost .3s ease-in-out infinite; }
 @keyframes flicker { 0%, 100% { transform: scale(1, 1); } 35% { transform: scale(1.07, .96); } 65% { transform: scale(.96, 1.03); } }
 @keyframes boost { 0%, 100% { transform: scale(1.35, 1.04); } 50% { transform: scale(1.5, .94); } }
@@ -426,6 +433,7 @@ kbd { font: 500 .7rem var(--mono); padding: .1rem .38rem; border-radius: 5px; bo
 @media (prefers-reduced-motion: reduce) {
   .nz-flame, .noz-brand:hover .nz-flame, .caret { animation: none; }
   .js .reveal:not(.in) .nz-rib, .js .reveal:not(.in) .nz-flame { transform: none; opacity: 1; }
+  .js .reveal.in .nz-block, .js .reveal.in .nz-sweep { animation: none; }
   .js .hero-name .wi { transform: none; }
   .streaks { display: none; }
   .marquee-track { animation: none; width: auto; flex-wrap: wrap; justify-content: center; row-gap: .4rem; }

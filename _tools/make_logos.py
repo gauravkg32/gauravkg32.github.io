@@ -104,15 +104,35 @@ def favicon(fill=.80):
                + mark(PALETTES["dark"]), px=550 / s)
 
 
+# Lettering colour change, from the first logo: left of a slanted line through the O the name is
+# `word` (white or near-black), right of it brand green. FILL is the first logo's green block; the site
+# sweeps it in behind the green part with the letters cut out, then fades it (hooks only).
+LEFT_OF_SLANT = "M150 40H406.67L323.33 240H150Z"
+RIGHT_OF_SLANT = "M406.67 40H600V240H323.33Z"
+FILL = "M390 80H532A28 28 0 0 1 560 108V172A28 28 0 0 1 532 200H340Z"
+
+
 def lockup(p, word, hooks=False):
     """The mark, with NOZ and STUDIO beside it, in the NOZ lettering's coordinates."""
     x0, y0, w, h = box()
-    k = 140 / h
-    mx = 250 - w * k - 26
-    return svg((mx - 8, 84, 478 - mx + 16, 160),
-               f'<g transform="translate({mx:.2f} 93) scale({k:.4f}) translate({-x0:.2f} {-y0:.2f})">{mark(p, hooks=hooks)}</g>'
-               f'<path d="{NOZ}" fill="{word}" stroke="{word}" stroke-width="6" stroke-linejoin="round"/>'
-               f'<path d="{STUDIO}" fill="{p["c"]}" transform="translate(363.5 230) scale(0.355)"/>', px=1)
+    k = 150 / h
+    mx = 250 - w * k - 30
+    letters = lambda c, clip: (f'<path d="{NOZ}" fill="{c}" stroke="{c}" stroke-width="6" '
+                               f'stroke-linejoin="round" clip-path="url(#{clip})"/>')
+    defs = (f'<clipPath id="nzl"><path d="{LEFT_OF_SLANT}"/></clipPath>'
+            f'<clipPath id="nzr"><path d="{RIGHT_OF_SLANT}"/></clipPath>')
+    block = ""
+    if hooks:
+        defs += (f'<clipPath id="nzw"><rect class="nz-sweep" x="330" y="70" width="240" height="140"/></clipPath>'
+                 f'<clipPath id="nzf"><path d="{FILL}"/></clipPath>')
+        block = (f'<g class="nz-block" clip-path="url(#nzw)"><path d="{FILL}" fill="{p["c"]}"/>'
+                 f'<path d="{NOZ}" fill="#0A0D0C" stroke="#0A0D0C" stroke-width="6" stroke-linejoin="round" clip-path="url(#nzf)"/></g>')
+    right = 568 if hooks else 486               # room for the block when it sweeps in
+    return svg((mx - 8, 72, right - mx + 8, 178),
+               f'<defs>{defs}</defs>'
+               f'<g transform="translate({mx:.2f} 84) scale({k:.4f}) translate({-x0:.2f} {-y0:.2f})">{mark(p, hooks=hooks)}</g>'
+               + letters(word, "nzl") + letters(p["c"], "nzr") + block
+               + f'<path d="{STUDIO}" fill="{p["c"]}" transform="translate(363.5 238) scale(0.36)"/>', px=1)
 
 
 if OUT == "--inline":

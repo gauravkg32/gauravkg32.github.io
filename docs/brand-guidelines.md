@@ -1,4 +1,4 @@
-# NOZ Studio Brand Guidelines v2.0
+# NOZ Studio Brand Guidelines v2.1
 
 > Last updated: 1 Nov 2026
 > Status: Final (colours decided 30 Oct 2026; logo replaced 1 Nov 2026)
@@ -91,7 +91,7 @@ Success green is close to brand green, so keep the two from meeting on screen. A
 --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 ```
 
-JetBrains Mono is for labels, numbers and code-like details. The NOZ lettering in the lockup is JetBrains Mono ExtraBold Italic converted to shapes: use the lockup files, never retype it.
+JetBrains Mono is for labels, numbers and code-like details. The NOZ lettering in the lockup is JetBrains Mono ExtraBold Italic converted to shapes, white turning green past a slanted line through the O: use the lockup files, never retype it.
 
 ### Type Scale
 
@@ -113,7 +113,7 @@ Google Fonts: Inter 400/500/600/700 and JetBrains Mono 500/700 with `display=swa
 
 ## 3. Logo Usage
 
-A green boost arrow with a jet nozzle of three ribs coming out of its back, and a blue flame coming out of the nozzle, all tilted up 25°. The arrow is the boost, the nozzle is where the name comes from, and the flame is the same one the first logo had. The mark is the logo: it is never cut down, and the name is set beside it, not inside it.
+A green boost arrow with a jet nozzle of three ribs coming out of its back, and a blue flame coming out of the nozzle, all tilted up 25°. The arrow is the boost, the nozzle is where the name comes from, and the flame is the same one the first logo had. The mark is the logo: it is never cut down, and the name is set beside it, not inside it. In the lockup, NOZ keeps the first logo's colour change: white (near-black on light backgrounds) up to a slanted line through the O, brand green after it.
 
 ### Variants
 
@@ -149,7 +149,7 @@ The mark works at every size down to a 16 px browser tab; below about 32 px the 
 - Don't use the dark-background logo on white; use the light version
 - Don't stretch, squash, crop, or add shadows, glows or outlines
 - Don't rearrange the parts, drop the nozzle or the flame, or put NOZ inside the mark
-- Don't retype NOZ or STUDIO in a font; use the lockup files
+- Don't retype NOZ or STUDIO in a font, or move the colour change in the name; use the lockup files
 
 ---
 
@@ -331,6 +331,7 @@ Owner dashboard with order bars and a low-stock alert, terminal green on near-bl
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.1 | 1 Nov 2026 | Lockup lettering: NOZ turns from white to green at the first logo's slant through the O; the site's logo animation sweeps in the first logo's green block behind the name, then fades it |
 | 2.0 | 1 Nov 2026 | New logo: boost arrow, three-rib jet nozzle and the first logo's flame, tilted 25°; the lettered nozzle and the no-lettering icon are retired; the mark is used at every size |
 | 1.3 | 31 Oct 2026 | In the apps: brand green only for the main button and logo; success shown as a toast with ✓ and words |
 | 1.2 | 31 Oct 2026 | Size tiers: lockup from 130 px, NOZ from 40 px, no lettering only below 40 px; avatar and iPhone icon now show NOZ |
