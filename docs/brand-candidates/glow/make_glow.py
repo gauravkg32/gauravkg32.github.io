@@ -1,6 +1,7 @@
 """The flame-glow candidate for the NOZ logo (23 Nov 2026, under review, not adopted).
 
-Hyprland's default border colours: the arrow and nozzle in green #00FF99, lit from the flame by a smooth cyan
+The arrow and nozzle in green #00F4B4 (halfway between Hyprland's #00FF99 and Bluer #08EAC4, so the logo and the
+buttons share one green), lit from the flame by a smooth cyan
 #33CCFF glow that fades to green toward the tip, and the flame in electric blue #3D7BFF. The NOZ lettering's green half
 and STUDIO carry a straight gradient from the same cyan into green (Kumar, 23 Nov 2026). Runs _tools/make_logos.py with these changes and writes the files into this folder; assets/brand is
 unchanged. Run from the repo root:
@@ -18,9 +19,9 @@ def swap(old, new):
 
 # Colours. `glow` is the flame's light on the nozzle; the one-colour logos have none.
 swap('"dark":  dict(c="#4ADE80", flame="#38BDF8", core="#E0F2FE"),',
-     '"dark":  dict(c="#00FF99", glow="#33CCFF", flame="#3D7BFF", core="#DCE6FF"),')
+     '"dark":  dict(c="#00F4B4", glow="#33CCFF", flame="#3D7BFF", core="#DCE6FF"),')
 swap('"light": dict(c="#15803D", flame="#0284C7", core="#BAE6FD"),',
-     '"light": dict(c="#007F4C", glow="#1E7896", flame="#3469D9", core="#C9D7FF"),')  # both 5:1 on white
+     '"light": dict(c="#057E5C", glow="#1E7896", flame="#3469D9", core="#C9D7FF"),')  # both 5:1 on white
 
 # The glow: a radial gradient centred behind the nozzle, where the flame is, in the mark's own coordinates.
 swap('def mark(p, angle=TILT, hooks=False):',
