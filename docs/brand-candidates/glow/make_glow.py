@@ -21,7 +21,7 @@ def swap(old, new):
 swap('"dark":  dict(c="#4ADE80", flame="#38BDF8", core="#E0F2FE"),',
      '"dark":  dict(c="#00F4B4", glow="#33CCFF", flame="#3D7BFF", core="#DCE6FF"),')
 swap('"light": dict(c="#15803D", flame="#0284C7", core="#BAE6FD"),',
-     '"light": dict(c="#057E5C", glow="#1E7896", flame="#3469D9", core="#C9D7FF"),')  # both 5:1 on white
+     '"light": dict(c="#057E5C", flame="#3469D9", core="#C9D7FF"),')  # 5:1 on white; solid, no glow (Kumar, 23 Nov 2026)
 
 # The glow: a radial gradient centred behind the nozzle, where the flame is, in the mark's own coordinates.
 swap('def mark(p, angle=TILT, hooks=False):',
