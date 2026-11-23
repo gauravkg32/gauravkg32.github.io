@@ -1,8 +1,8 @@
 """The flame-glow candidate for the NOZ logo (23 Nov 2026, under review, not adopted).
 
 Hyprland's default border colours: the arrow and nozzle in green #00FF99, lit from the flame by a smooth cyan
-#33CCFF glow that fades to green toward the tip, and the flame in electric blue #3D7BFF. The NOZ lettering stays
-solid green. Runs _tools/make_logos.py with these changes and writes the files into this folder; assets/brand is
+#33CCFF glow that fades to green toward the tip, and the flame in electric blue #3D7BFF. The NOZ lettering's green half
+and STUDIO carry a straight gradient from the same cyan into green (Kumar, 23 Nov 2026). Runs _tools/make_logos.py with these changes and writes the files into this folder; assets/brand is
 unchanged. Run from the repo root:
     python docs/brand-candidates/glow/make_glow.py
 """
@@ -37,6 +37,16 @@ swap('''    solid = lambda poly, extra="": (f'<path{extra} d="{_d(poly)}" fill="
     solid = lambda poly, extra="": (f'<path{extra} d="{_d(poly)}" fill="{paint}" stroke="{paint}" \'''')
 swap('''    return f'<g transform="rotate({-angle} 50 50)">{flame}{ribs}{solid(ARROW)}</g>\'''',
      '''    return f'<g transform="rotate({-angle} 50 50)">{glow_defs}{flame}{ribs}{solid(ARROW)}</g>\'''')
+
+# The lettering's green half and STUDIO carry the glow too: a straight gradient across the lockup, cyan into green.
+swap("""    defs = (f'<clipPath id="nzl"><path d="{LEFT_OF_SLANT}"/></clipPath>'""",
+     """    text = "url(#nzlg)" if "glow" in p else p["c"]
+    defs = ((f'<linearGradient id="nzlg" gradientUnits="userSpaceOnUse" x1="-60" y1="250" x2="470" y2="90">'
+             f'<stop offset="0" stop-color="{p['glow']}"/><stop offset="1" stop-color="{p['c']}"/></linearGradient>')
+            if "glow" in p else "")
+    defs += (f'<clipPath id="nzl"><path d="{LEFT_OF_SLANT}"/></clipPath>'""")
+swap("""+ letters(word, "nzl") + letters(p["c"], "nzr") + block""", """+ letters(word, "nzl") + letters(text, "nzr") + block""")
+swap("""+ f'<path d="{STUDIO}" fill="{p["c"]}" transform""", """+ f'<path d="{STUDIO}" fill="{text}" transform""")
 
 sys.argv = ["make_logos.py", HERE]
 with contextlib.redirect_stdout(io.StringIO()):
